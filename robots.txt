@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://carljohanrehn.github.io/levande-landskap/sitemap.xml
+Sitemap: https://carljohanrehn.github.io/allehanda/sitemap.xml

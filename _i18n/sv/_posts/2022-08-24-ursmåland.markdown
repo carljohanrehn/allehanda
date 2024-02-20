@@ -1,0 +1,44 @@
+---
+layout: post
+title: Ursmåland
+date: 2022-08-24 17:13:16
+tags: 
+  - Småland
+categories: 
+  - Gammalsverige
+---
+
+Ett par mil från Skurugata, i Rumskulla socken, bortom den stora gården Venzelholm med dess välskötta skogsparker, ytterst på ägorna till Norra Kvill, som är en kronogård, finner man med någon svårighet den berömda urskogen. Det är oländigheten och de stora avstånden, förr i världen omöjliga att betvinga, som till vår tid har sparat en rest av ursprunglig skogsnatur. Detta är Norra Kvills nationalpark. Inom dess gränser finns inga som helst spår efter yxa eller såg.
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/norra-kvill-urskog-10-wtrpxl.jpg" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+     Urskog i Norra Kvill.
+</div>
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/norra-kvill-stora-idegölen-10-wtrpxl.jpg" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+     Stora Idegölen i Norra Kvill.
+</div>
+
+Gården är centrum i kronoparken Norra Kvill, och därifrån utgår ett system av timmervägar. Man följer en av dessa vägar några kilometer genom helt vanlig timmerskog, till stor del ungskog, ända tills man har kommit över en liten bro. Denna bro övertvärar en skogsbäck, som är en av Stångåns källfloder och kommer från en liten göl mitt i nationalparken &mdash; mitt i urskogen.
+
+Det kommer sådana glimtar av natur kring vägen från Eksjö ner mot Värnamo. De är förebuden till Store mosse, det urlandskap utanför mänsklig tid som lever därnere i sydväst. Store mosse är inte ett enda sammanhängande mossflak utan en hel värld av ljungmossar, starrmader, gölar med brunklart vatten, ett gungfly av jätteformat, ett par grunda fågelrika sjöar, ett kärrdråg genom mossmarken, ofantligt, halvmilslångt och i sin rika utbildning utan motsvarighet i Sverige, även om man tar Norrland med i jämförelsen.
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/store-mosse-nationalpark-10-wtrpxl.jpg" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+     Store Mosse nationalpark.
+</div>
+
+Det luktade björksav och pors, det stod som en ånga ur riset. Västersolen baddade på, och i vinden som kom svepande mjukt över laggen var mossens egen andedräkt lätt, vild, eggande. Därute, långt därute i motljuset gick en trana och furagerade. Den klev med långa, dröjande steg i den höga starren, såg förnäm och tankspridd ut. Det var den ena, kanske hanen, av det par som alltid bor i Blådöpet. Sommarfreden var fullkomlig.

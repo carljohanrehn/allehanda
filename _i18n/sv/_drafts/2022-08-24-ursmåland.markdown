@@ -1,0 +1,165 @@
+---
+layout: post
+title: Ursmåland
+date: 2022-08-24 17:13:16
+tags: 
+  - Småland
+categories: 
+  - Gammalsverige
+---
+
+Långt uppe, långt inne i Småland, där Stångåns källor rinner upp, gömmer sig rester av urlandskapet. Där finns Skurugata, en klyfta i urberget så djup att vintersnön på dess botten inte brukar smälta förrän till midsommar. Där står högt och fritt, med utsikt över många mil av skog, en ofantlig gammal ek, Sveriges största träd. Och där lever i en avkrok mellan stenrasen en sista liten återstod av den småländska urskogen.
+
+Skurugata ligger i Hults socken, där Albert Engström växte upp. Han har skildrat den i ord och bild med sådan vresig kraft att var och en som kommer till Hult bara tänker på Skurugata.
+
+Nå, vi kom till Hult, det var en dag i maj, i den vackraste våren. Och naturligtvis måste vi se Skurugata. I kyrkbyn träffade vi en gammal man med det knotiga och hungriga men välvilliga ansikte vi kom ihåg från Strix. Han gav oss besked om vägen: &#8220;Kör förbi Ägersgöl till Klinten och där förbi inåt skogen. Sen går det en stig till höger.&#8221; Det lät så enkelt och lättfattligt.
+
+Vid Ägersgöl sätter man potatis i den lätta, goda mylla som Gud fader har begåvat oss med i gråstenslandet, mellan flyttblocken. Den myllan har varit vår bärgning genom tusen år. Eller kanske riktigare sagt, vår halva bärgning. Den andra hälften kom från äng och betesmark. Varje smålänning av en äldre årgång känner igen allt detta. Det är en barndomsbild i verkligheten: bonden bakom plog och häst, i smidiga krökar kring flyttblocken; jorden varmbrun i färgen där tiltan just har vänts upp; det ljusa lynnet, en vänlig ton kring åker och gård och gröna hagar. Och körsbärsträden blommar kring alla de grå blocken, blommar och snöar mot en blå horisont av skog.
+
+Vi for vidare över Klinten, kom till en punkt, där det gick en stig åt höger, lät bilen stå och följde stigen. Den förde oss till den bebodda världens ände, ett av de otaliga skogstorpen. Men den bebodda världen krymper: folk och fä har dragit sig tillbaka från skogen. Det är här som på tusentals andra ställen i det stora svenska landet: torpstugan står tom genom höst, vinter och vår och vaknar till liv ett tag, långt fram på sommaren. Tornsvalorna kommer sist av alla flyttfåglar. De har redan ungar under takpannorna, när sommarfolket inrättar sig i kök och kammare. Denna bebyggelse innerst och överst i svenska marker kom till genom 1800-talets ex pansion i överbefolkningens och fattigdomens tecken. Industrialis men förde med sig en avlösning, ett slut på detta fattigliv och, som sagt, en romantisk efterblomning.
+
+Vägen, halvt igenvuxen, tog slut vid fähuset. Ett par sötaplar blommade över källkaret. Göken gol i alla väderstreck. En sandlåda stod och väntade på sommarbarnen.
+
+Men Skurugata? Vi fick vända vid torpet, gå ner till vägen igen, skaka vidare över stenar och blanka tallrötter. Till sist fann vi den rätta stigen. _Till Skurugata_ läste vi på en avvisare. Det kunde ha stått: Till underjorden. Ty stigen in i Skurugata är vägen in i ur bergets innandöme. Den sänker sig, den stupar, tumlar, slingrar mellan hopade lösa block, det mörknar omkring oss, svalnar märk bart för varje steg. Det är som att gå ner i en källare.
+
+På båda sidor, till höger och vänster har vi nu släta bergväggar. Mellan dem lyser en strimma av blå himmel, och mot detta himla ljus strävar granar, sälgar, några piriga björkar. Ännu idag, den 21 maj, när björklövet lyser grönt över Småland, står träden här i klyftan kala och vintriga. Våren har inte hittat vägen hit ner &mdash; inte med full kraft. På klyftans botten avtecknar sig svarta fläckar efter snölägen. Efter en snöfattig vinter som den senaste går vi miste om den ivrigt väntade synen. Men sista snön kan ha försvunnit igår.
+
+Skurugata måste ha uppstått som ett system av djupa sprickor ner genom urberget. Det kan ha skett miljoner år före landisens tid. Klyftan löper i riktning nordväst &mdash; sydost. I samma riktning rörde sig landisen; denna jättejökel, kanske tusentals meter tjock, måste ha pressat sig ner i springorna, ty is under starkt tryck är en plastisk massa, mjuk och hård på samma gång. Isen kan ha rensat upp och gripit med sig vad som fanns av söndersprucket berg, gått till botten med sitt verk och skridit vidare ner åt sydost.
+
+Så ser det ut att vara. Klyftan är bitvis 60, 70 meter djup och nästan osynlig från sidorna: där man går fram på den jämna skogsplatån, märker man ingenting ovanligt förrän man plötsligt står vid den skarpa kanten och ser trädkronorna, granspjuten sticka upp ur det skumma djupet.
+
+Ett par mil från Skurugata, i Rumskulla socken, bortom den stora gården Venzelholm med dess välskötta skogsparker, ytterst på ägorna till Norra Kvill, som är en kronogård, finner man med någon svårighet den berömda urskogen. Det är oländigheten och de stora avstånden, förr i världen omöjliga att betvinga, som till vår tid har sparat en rest av ursprunglig skogsnatur. Detta är Norra Kvills nationalpark. Inom dess gränser finns inga som helst spår efter yxa eller såg.
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/norra-kvill-urskog-10-wtrpxl.jpg" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+     Urskog i Norra Kvill.
+</div>
+
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/norra-kvill-stora-idegölen-10-wtrpxl.jpg" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+     Stora Idegölen i Norra Kvill.
+</div>
+
+Gården är centrum i kronoparken Norra Kvill, och därifrån utgår ett system av timmervägar. Man följer en av dessa vägar några kilometer genom helt vanlig timmerskog, till stor del ungskog, ända tills man har kommit över en liten bro. Denna bro övertvärar en skogsbäck, som är en av Stångåns källfloder och kommer från en liten göl mitt i nationalparken &mdash; mitt i urskogen.
+
+Strax bortom bron leder en stig upp mot nationalparksgränsen, och kring den stigen börjar det märkliga. Till vänster tornar sig un der träden ett berg, som ser ut att vara en blockstad för jättar. Flyttblocken, hopade på varandra, bär hucklen av mossa, och under dessa hucklen stirrar svarta gluggar, grottor, klyftor. Den som ser en sådan terräng förstår hur lätt det var för björnen att finna en ideplats, det var bara att gå in i marken. Det är för övrigt inte stort mer än hundra år sedan den sista björnen fälldes i dessa smålandsskogar.
+
+Över den mossiga blockstaden stiger skogen, tall och gran med mäktiga spiror, redan av forntidsmått. Själva nationalparken om fattar endast 27 hektar men har omkring sig en vidlyftig kappa av åldrig skog, som gör det hela större och ger den rätta stegringen.
+
+Den som en gång har följt denna stig in i skogens och landets forn tid glömmer det aldrig. Vid gränsen till det fredade området ligger tvärs över stigen några fallna träd, halvmurkna stammar som korsas till en hindergård. Man får krypa och klättra. Till vänster tätnar det av mäktiga stammar över blockmarken, och lindlöv glänser i den svaga dagern; det gör ett märkvärdigt intryck att finna linden här djupt inne i flerhundraårig barrskog. Till höger har man samma vilda terräng, men här sänker sig marken i väldiga svep ner mot bäcken.
+
+Det mosstäcke man ser i denna slänt är en fantastisk skapelse. Det tar kanske hundra år och hundra därtill, innan skogens mossa når en sådan utbildning. Vid den synen begriper man att modernt skogsbruk helt enkelt inte ger utrymme i tiden för mosstäcket att nå sin fulla prakt.
+
+Mitt i urskogen har man så den lilla tjärnen, ett av de otaliga brunklara vatten som tillhör den svenska skogen. Tallar står runt omkring över skvattram och blåbärsris, tranbärsrevor klänger över tuvorna, på vattenytan vilar de vita nordnäckrosorna.
+
+Sådan var alltså skogen i gamla tider &mdash; smålandsskogen mil efter mil mellan de skilda folklanden. För att begripa skogen som geografisk, bygdeformande och militär faktor i vårt folks historia &mdash; skogen som historisk verklighet &mdash; för ett sådant organiskt begripande är det en nödvändighet och en förutsättning att se urskogen. Norra Kvills nationalpark är sannerligen en nationell tillgång.
+
+Den lilla gården Norra Kvill har en annan märkvärdighet, som man passerar på väg till nationalparken &mdash; den famösa eken, en av Europas största, vad stammens omkrets beträffar. Denna jätte mäter 13 meter i midjemått. Det är en individ, en karaktär för sig som alla mycket gamla. En nästan lodrät spricka, igenvuxen för åtskilliga hundra år sedan, ser ut att vittna om ett blixtnedslag, ett åskväders ögonblick på &mdash; låt oss säga &mdash; Karl Knutssons eller Nils Dackes tid. Den ofantliga stammen är ihålig, den är en grotta som lär kunna rymma ett dussin personer. De tidigare årsvarven, själva kärnan, några hundra år i ekens historia är alltså en utplånad skrift. Men säkert är att detta träd har sett hela den tid vi brukar benämna historisk, från järnålderns slut, från vikingatid till nutid.
+
+Det är något bortvänt &mdash; jag finner ej rätta ordet &mdash; över de sista kvarlevorna av ursprunglig natur i den miljö som är vår egen, det nyttiggjorda, snyggt linjalritade Folksverige. Man reser den asfalterade riksvägen fram mellan splitternya tätorter, maskinbrukade åkrar, skogar som är produktionsområden för massaved och såg timmer. Och så händer det någon gång: från vägen ser man ett kärr, en mad, där porsen växer i bruna, oregelbundna kvarter och starren bildar djupgröna fält i ett perspektiv som öppnar sig skönt och fjärran.
+
+Det kommer sådana glimtar av natur kring vägen från Eksjö ner mot Värnamo. De är förebuden till Store mosse, det urlandskap utanför mänsklig tid som lever därnere i sydväst. Store mosse är inte ett enda sammanhängande mossflak utan en hel värld av ljungmossar, starrmader, gölar med brunklart vatten, ett gungfly av jätteformat, ett par grunda fågelrika sjöar, ett kärrdråg genom mossmarken, ofantligt, halvmilslångt och i sin rika utbildning utan motsvarighet i Sverige, även om man tar Norrland med i jämförelsen.
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/store-mosse-nationalpark-10-wtrpxl.jpg" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+     Store Mosse nationalpark.
+</div>
+
+Före bilresursernas tid tog man sig med tåget till Hillerstorps station på linjen Borås &mdash; Alvesta och hade sedan att traska och vada i detta sumpens rike. Hillerstorp, nu ett uppblomstrande stationssamhälle, ligger mitt i området, i Kävsjö socken, vars kyrkbygd är en ö Store mosse. Jag kom hit för första gången ungefär tjugoårig, fick efter linneansk modell kvarter i prästgården och gav mig var morgon ut på upptäcktsfärd i en främmande, spännande verklighet som fyllde marken, vattnet, luften; det var i första juniveckan, nya fåglar ropade med nya röster och kom emot mig på spelande vingar. Jag gick långt ut över högmossen till gölar där smålommarna häckade, runt Kävsjön, tvärs över gungflyets underliga flytande matta och till sist upp på Stråkeveds berg, som gav en vid utblick.
+
+Detta var stor terräng men ändå bara centrum i det väldiga mosslandskapet, som räknar åtskilliga kvadratmil och med vidlyftiga förgreningar sträcker sig genom sju kyrksocknar.
+
+I somras kom jag tillbaka efter mer än fyrtio år, och allt var detsamma. Men nu kunde jag med bilen göra en omfattningsrörelse, på några timmar ringa in dessa kvadratmil och om kvällarna upprätta min lyssnarpost var som helst i de sju socknarna. En afton stod jag vid Blådöpet, ett stycke natur som mer än något annat samlar Store mosses karaktär. Det är en sträng av blötmark med öppna gölar tvärs genom högmossen, ett kärr, ett gungfly och på samma gång ett vattendrag, det sakta framflytande avloppet för Kalvsjön, en av de många sjöar, större och mindre, som tillhör mossens vattensystem. Ordet blå i namnet är säkert inte färgbeteckningen, det är blå i betydelsen stor, oerhörd; jämför blåskägg, blåsupa. Döpet, ja, det är vatten, vattendjup, detsamma som i dop och döpa.
+
+Det luktade björksav och pors, det stod som en ånga ur riset. Västersolen baddade på, och i vinden som kom svepande mjukt över laggen var mossens egen andedräkt lätt, vild, eggande. Därute, långt därute i motljuset gick en trana och furagerade. Den klev med långa, dröjande steg i den höga starren, såg förnäm och tankspridd ut. Det var den ena, kanske hanen, av det par som alltid bor i Blådöpet. Sommarfreden var fullkomlig.
+
+För en människa är det ett kraftprov att ge sig ut i sådan terräng. Nu stannade jag vackert i mosskanten. Men från en lyckligare ålder visste jag precis hur det ser ut hos tranorna på deras gungande matta av vitmossa och vattenklöver, kråkris, dvärgbjörk och ljung. Omkring dem blommar vattenklövern i stora fält under de jagande trollsländorna. Den har en fägring, denna blomma, en daggig renhet som påminner om en kronbrud med rätt att bära slöjan. Ingenstans i detta land har jag sett vattenklöver i sådan rikedom som i Blådöpet.
+
+Det hela är ett nätverk med maskor och hål, där vattnet blänker. En del av dessa vattenhål är ganska stora, med näckrosblad på ytan och bladvass i kanten. Här ser man den igenväxande sjön; det är mitt i omskapelsen till sumpmark, kärr, mosse. Och plötsligt erinrar man sig att Store mosse i sin helhet är de igenvuxna nordliga delarna av en mäktig, rikt förgrenad forntidssjö, en issjö vars största nutida rest är sjön Bolmen. Tänker man sig mossen som en sjöyta, får man en föreställning om fördelningen mellan land och vatten här i centrala Småland närmast efter istiden. Det måste ha varit en arktisk värld med dvärgbjörk och fjällörter kring ett ödsligt vatten, där fjällfåglar ropade i sena, kyliga vårar.
+
+Nu är det så att Store mosse har bevarat en återstod och en efter klang av denna högnordiska epok. Det är landskapshistoria genom tio tusen år, röster ur en tid bortom vår egen, när dvärgbeckasinen spelar över Blådöpet, där hans hona ruvar sina fyra ägg i skydd av dvärgbjörkrisets små stela blad. Eller när smålommarna ljudligt kacklande sträcker över mossvidden och själva sångsvanen vallar sina ungar i maden mellan de bruna porsöarna. I Lappland har jag strävat miltals genom det övre skogs- och myrlandet för att fånga en glimt av sångsvanar. Här i Småland har jag äntligen fått uppleva en sådan ödemarkssyn, fint inramad av Storbolmens forntidskontur: de vita, raka halsarna, som höjdes ibland för att speja, dök upp som periskop ur ett hav av grönt. Det är ett ytterst märkligt faktum att sångsvanen har häckat i Småland &mdash; var? &mdash; ja, det vore farligt att röja, ty denna vildmarkens storfågel är den skyggaste bland de skygga och kan fly från bo och ägg om en människa tränger på.
+
+Det artar sig till en vacker kväll vid Blådöpet, vindlös, klar men ändå inte kall: en riktig fågelkväll. Venus lyser med fast sken där solen försvann, och jorden, själva mörkret sjunger mot aftonstjärnan. Ännu hör jag taltrasten, ännu en stund rödhaken. Ur kärret kommer sumphönsens taktfasta bröllopsmusik, ett grymtande från en vattenrall och en lockton, kort, tredelad, som jag inte minns mig ha hört tidigare. Från mosskanten i söder bubblar orrarna. Bakom mig i skogen firar göken, trolös och rolös, en häxnatt med sin lika tvivelaktiga älskarinna. Nattskärran sätter i gång sin spinnrock.
+
+Detta är djupast i Småland. Bortom hage och skog ligger Värnamo, framför mig i nordväst har jag Blådöpet, mörkt, vidöppet under en blek solrodnad. I minnet halvsjunger Snoilskys ord: &#8220;Bak fjärran skogar dunkelblå sjönk kvällens rosensken&#8221;.
+
+Luften skälver av enkelbeckasinernas bröllopsflykt ännu när göken har somnat och orrarna tystnat i sin mosskant. Det är så lugnt i luften, så stilla att Jupiter står speglad som en liten måne i träskvattnet.
+
+Minuterna blir timmar, och solrodnaden skrider mot norr. Då händer det: över Blådöpet och högt genom en rymd som tycks full av ljus men ingenting förråder närmar sig hastigt en &mdash; galoppad hästhovar i smattrande språng &mdash; liknelsen ger sig själv. Jag vet att det är dvärgbeckasinen som spelar, men jag hör på samma gång hur Odin rider förbi genom himlen på den åttafotade Sleipner. Har man upplevt dvärgbeckasinens spelflykt, osynlig i halvljuset, denna vid underliga ljudeffekt, då vill man med sentida uttolkare gärna tro att bakom sägnen om Odins jakt ligger detta fenomen och ingenting annat.
+
+Sådant är Blådöpet idag som på Allfaders tid. Men ansatser har gjorts till förstöring av denna natur. Efter en kantdikning av det väldiga kärrdråget skulle torvlagren flås av från en yta på någon kvadratmil och förvandlas till torvbriketter. Det kunde vara gjort på några decennier. Och sedan ingenting mer &mdash; mossen utnyttjad en gång för alla, marken ödelagd till evärdelig tid.
+
+Att förstöra naturtillgångar som dessa vore under vårt rikes vär dighet. Men det innebär ingen garanti. Vad som hittills har räddat Blådöpet är inga ideella hänsyn utan ett helt prosaiskt skäl: företaget kan bli allt för dyrt. Och förlusten kan bli dubbel, om man ser till framtiden. Det förhåller sig så här:
+
+Vad en bilrörlig, naturintresserad allmänhet söker är inte så mycket det bekvämt tillgängliga och tillrättalagda, det är de karakteristiska enheterna av mark och liv, sak samma om de har ett kärvt och avvisande tycke. Det sista gäller Store mosse, ett stycke av Ursmåland, det största som ännu är levande, ett naturlandskap som en gång &mdash; om det får existera &mdash; skall bli en europeisk attraktion. Allt detta bebådar ett mervärde också av ekonomisk art: en ny tid räcker handen åt det naturintresse som har svårt att hävda sig mot teknikens övermakt.
+
+Så är vi nu mitt uppe i det grundläggande arbetet för en nationalpark som kan kallas Store mosse. Mitt i området ligger Kävsjön med Sydsveriges kanske artrikaste fågelliv. Det har sedan länge varit fredat. Men ett fågelskydd tjänar till intet, om marken, boplatsen förvanskas t. ex. genom dikning och vattenavledning. Ett skydd för själva marken är det enda betryggande. Viktiga delar av Kävsjöområdet har på sistone inköpts av staten, nya markförvärv planeras, och en lycklig lösning kan skönjas. Bakom verket står framför andra professor Edvard Wibeck &mdash; densamme som genom årtionden av hängivet arbete har skapat Muddus nationalpark, det mäktiga, nu världs berömda reservatet av urskog och myrar i Lappland.
+
+Sydsvenska höglandets stora mossmarker ligger mest i det inre, där landet börjar slutta åt väster. Detta är inte slumpens verk utan har sin bestämda orsak. I höglandets västliga delar, där regnmolnen kommer seglande in från Västerhavet, faller mer än dubbelt så mycket regn och snö som i östra Småland. Höjden över havet, som är ända till 350 meter, gör klimatet svalare än i kustlandskapen. Rik nederbörd och låg temperatur är just vad som befordrar försumpning; om landskapet därtill är flackt, så att vattnet har svårt att rinna bort, kan mossar och kärr breda ut sig över milsvida områden. En sådan belägenhet har just Store mosse och likaså Dumme mosse, som ligger ett par mil väster om Jönköping. Detsamma gäller i viss mån också Komosse på landskapsgränsen mellan Småland och Västergötland. Komosse är den näst största av dessa tre och något alldeles för sig.
+
+Min första upptäcktsvandring på Komosse började vid Äsebo, en by strax öster om mossen. Det första lördagen i maj, en klar, ljum eftermiddag med svag sydvästlig vind. I östligaste gården stod bonden vid sin lagårdsknut och såg med välbehag ut över åkrarna, som låg färdigbrukade för vårsådden. Jag sporde honom om bästa vägen.
+
+&#8220;Jaså, ska han opp på mossen. Han går la inte å förvillar sej&#8221;, blev hans inledande ord till de goda råd jag fick.
+
+&#8220;_Opp_ på mossen&#8221; det lät ovanligt men visade sig helt träffande. Högt ligger redan Äsebo, med milsvid utblick över åkrar, hagar och blå skogar, ett stort stycke av Småland. Men högre bär det, upp åt genom skogen, ständigt uppåt längs en bäck, som risslar fram i en bädd av smaragdgrön mossa. Bäcken kommer från mossen. Till sist ser jag himlen mellan granarna och står i nästa minut i skogens bryn mot Komosse. Det är en överraskande syn jag har framför mig &mdash; en ofantlig dunkelbrun vidd, som välver sig upp mot himlen och skym mer bort vad som kan finnas på andra sidan. På ett och annat ställe bortom mossens himlarand sticker granspirorna upp ungefär som masterna på ett fartyg når ovan horisonten, medan fartyget självt är dolt av jordens rundning.
+
+När man ser denna högvälvda mossyta, förstår man benämningen _högmosse_. Man förstår också, att en högmosse är bevattnad av neder börden direkt från himlen, inte av tillflöden från andra håll. Som en jättestor svamp suger mossen upp regnvattnet och avger det sedan jämnt och långsamt.
+
+Utmed skogsbrynet löper en lagg, ett bälte av sankare mark, dit vattnet sipprar ner från mossen och från fastmarken. Laggen är som ett dike utefter mosskanten, och från laggen söker sig bäckdrågen ner genom skogen.
+
+Nu gäller det att komma över laggen; det kan vara svårt nog, men till min häpnad märker jag att tjälen ännu finns kvar nere i torven; det känns hårt och fast under fötterna. Framför mig ligger ett oändligt tuvrike av ljung och vitmossa med svarta svalg av dy mellan de höga, snärjiga tuvorna. Ett par ljungpipare hälsar mig välkommen med ödslighetens egen ton. En storspov drillar över mosslaggen. Ett par tranor eller kanske ett par smålommar ropar vilt och ihållande på långt avstånd. Men annars härskar tystnaden. Den brytes knappt, den bara betonas av ängspiplärkans fina, spröda visa, när hon fladdrar upp över tuvorna.
+
+I dyhålorna &mdash; höljorna &mdash; finns ingen tjäle att lita på, de är farliga fallgropar. Man balanserar på en sviktande tuva av kärrull, kråkris eller ljung, tar ett språng till en annan och en tredje, som plötsligt ger efter &mdash; ett långt hopp i sista sekunden, nästan på måfå! Nå, i regel går det bra, om man bara har lärt sig konsten att inte ta ut hela sin tyngd på varje steg; man berör helt lätt en tuva med foten och flyttar hastigt över tyngdpunkten till nästa, så snart det behövs. Det är som att jumpa på isflak &mdash; och lika spännande.
+
+Säkrast för foten är de stora ljungtuvorna, där gråvit renlav lyser i krönen. Höljorna är breda och ett felsteg kan bli otrevligt. Vill det sig mycket illa, sjunker man farligt djupt i en sådan hölja. Där under finns visserligen fast mark men den ligger på två, tre eller fyra meters djup. Det är dubbel manslängd &mdash; mer behöver inte sägas. Kanske bör jag ändå tillägga att borrningar på 158 ställen har visat att det finns djup på över åtta meter och att medeldjupet är över tre.
+
+Ifjol, i slutet av maj återsåg jag Komosse. Vi kom från den djupa Nissadalen, förbi Mulseryd uppför långa, sugande backar. Till sist var vi uppe på Komosses platå, som är vattendelare mellan Nissan och Ätran och ett av de högsta partierna inom hela det sydsvenska höglandet.
+
+Mitt ute i Komosses ödslighet, i kanten av de mörka mossflaken ligger byn Mörkö. Hela byn med åkrar och hagar är en knappt märkbar höjning över mossytan, ett stycke moränmark med flyttblock, som vanligt, men bördig, lättbrukad jord mellan stenarna.
+
+I utkanten av byn lekte några barn.
+
+&mdash; Bor ni här i ödemarken? Så utlät sig en person i vårt lilla sällskap. Svaret blev:
+
+&mdash; Nää, vi bor i Mörkö.
+
+Ödemarken finns inte till för sina egna. Det bör man komma ihåg.
+
+Från landsvägen, ungefär en kilometer väster om Mörkö ut går en vandringsled, som har planerats av Svenska turistföreningen i samråd med Komosses främste kännare och skildrare, professor Hugo Osvald, och &mdash; självfallet &mdash; i närmaste sam arbete med markägaren här, som är Svenska naturskyddsföreningen. Denna stig, fem kilometer lång, går ut över några av Komosses allra märkligaste delar; har man ett par timmar på sig, rörliga ben och rejäla skodon, är det bara att följa stigen &mdash; den är tydligt markerad med höga stolpar &mdash; rakt ut i den underliga värld, som lever härute under himlen, långt från människor.
+
+Stigen går först genom skog, över smala flikar av mossen och steniga _öar_, som man säger här. En ö i Komosse, det är en av dessa skogbevuxna moränkullar som sticker upp över mossytan. Mörkö är en sådan ö, en annan är Stora Björnö, där stigen följer fast mark för att sedan plötsligt sticka rätt ut över den öppna mossen. Här vore det svårt att komma vidare, om man inte hade stigen att hålla sig till. Den är spångad med präktiga plankor på alla blöta sträckor, där de djupa höljorna gapar mellan ljungens tuvor.
+
+Bakom mig har jag Stora Björnö, men i tre väderstreck &mdash; i väster, norr och öster &mdash; går mossen ut i en mörk horisont. Det är som en upptäcktsfärd på havet, där nya, okända öar dyker upp och lockar. Havet är mossen, och de obekanta öarna är granskogsholmar i mossens famn. Kring oceanens öar dånar bränningen, ödesdiger för seglaren; kring granskogsholmarna i Komosse sluter sig sanka kärr och mader, där en upptäckare också kan gå i kvav. En sådan ögrupp i min väg är Mörkö ängaskog med breda kärrängar kring öarna. Förr i tiden tog bönderna noggrant vara på starrgräset i alla dessa laggar och mader, men nu är det slut med kärrslåttern här som på de flesta andra håll i södra Sverige.
+
+En stor vattenyta öppnar sig plötsligt mitt i mossen. Det kommer överraskande; man ser den först på nära håll i denna flacka terräng. Det är Björnsjön, en verklig moss-sjö, helt infattad i torvmossen.
+
+I Äsebo hörde jag märkvärdiga ting berättas om Björnsjön. Jag fick veta, att avloppet ur sjön är en tunnel under torv och gungfly. Men ändå finns här fisk &mdash; gädda, abborre, mört och, allra märkligast, ål. Man må säga, att ålen finner underliga vägar på sin ungdoms långa färd från havets djup!
+
+Björnsjön är intressant på flera sätt. Den är en rest av en större sjö, som fanns här före mossens tid. Torven har sedan vuxit ut och trängt ihop den fria vattenytan. Det har skett från sydväst, där växtligheten har lä för den härskande sydvästliga vinden. I nordost ligger vinden på över sjön, och vågorna angriper torven. När jag går där på den tvära torvkanten, hör jag rätt under mig, under torvtaket, ett ihåligt kluckande ljud &mdash; det är vattnet som har ätit sig in under torven, alldeles som havsvågorna holkar ut grottor i själva hälleberget. Sjön utvidgar sig alltså här i nordost men växer samtidigt igen från sydväst.
+
+Björnsjön är ständigt på vandring. Hur snabbt det sker kan man faktiskt avläsa på platsen, om man har i handen den förträffliga karta över Komosse som tillhör Hugo Osvalds berömda avhandling.
+
+Där ser man nordost om sjön en holme, som bär namnet Lilla Björnö. Mellan sjön och denna lilla holme av storstenig morän finns på kartan en mossyta av ungefär trettio meters bredd. Idag, drygt 40 år senare, leker Björnsjöns vågor direkt mot stenblock och grus i Lilla Björnös kant, och de yttersta träden, björkar och tallar, hänger med frisköljda rötter ut över vattenytan. Detta betyder att Björnsjön här vid Lilla Björnö på fyrtio år har vandrat ett trettiotal meter åt nordost. En ytterligare blick på kartan låter oss ana att Lilla Björnö om hundra eller tvåhundra år kommer att vara en ö i själva Björnsjön!
+
+Lilla Björnö kan sägas vara medelpunkten i Komosses ödevärld. Här susar granar och tallar kring ett gränsmärke av resta stenar, en hög sten i mitten och fyra lägre omkring den: landskapsgränsen mellan Småland och Västergötland går fram över Lilla Björnö och gör en skarp vinkel här. På denna punkt i utmarken sammanstöter fyra socknar, Mulseryd i Småland och Strängsered, Grönahög och Ölsremma i Västergötland.
+
+Ett stycke nordost om Mörkö ligger Komosses högsta punkt. I detta ödslighetens hemvist, med de öppna mossflaken utsträckta åt alla håll mellan taggade granskogsband, befinner man sig 347,4 meter över havet, högre än på toppen av det berömda Taberg, som når 343 meter. Det är en sällsam tanke. Här står man sannerligen på Sydsvenska höglandets tak, det ofantliga bruna torvtak, som över skyggar skogar, bygder och dalgångar i två landskap, Småland och Västergötland. Utsikten från denna punkt stannar för alltid i minnet. Intet påminner här om odling och människoverk. Så långt man ser åt alla håll råder den fullkomliga vildmarken, sådan den danas och åter omdanas i en ständigt förnyad skapelse genom tiderna.
+
+Komosse vilar på moränens hårda grund, på istidens steniga grus bädd. Gör man ett schakt i torven ner till denna grund, gräver man sig genom det ena årtusendet efter det andra neråt, bakåt i tiden. På en del ställen i utkanterna av Komosse har naturens egna krafter fullgjort sådana grävningar; det är där regnvattnet i rännilar och bäckar söker sig ner från mossens kupol. Det rinnande vattnet har skurit igenom de mäktiga torvlagren ända ner till grusbädden. Ovanpå gruset ser man i torven rester av den växtlighet &mdash; vitmossa, kärrörter, vide och björk &mdash; som levde här på stället i mossens äldsta tid, för många tusen år sedan. Några meter högre, några årtusenden senare griper grova rötter genom torven, de står ut ur bäckravinens vägg som krökta, knotiga armar, silvergrå av ålder. De berättar om den torra tid mot slutet av stenåldern och under bronsåldern, då mossarna torkade ut och skogen ryckte fram med sina gröna förband. Flertalet mossar i Sydsvenska höglandet blev helt skogbevuxna under denna tid. Också här trängde skogen ett stycke fram men nåd de aldrig ut över de stora mossvidderna. I skogsbrynen kring Komosse fanns inte bara ståtliga tallar utan också ek och hassel. Vid Elmö, en by i norra kanten av mossen, hittade man härom året vid torvgrävning en väldig, tio meter lång ekstam. Den var så frisk och hård, att veden kunde användas till &#8220;vispastickor&#8221;, att &#8220;vispa&#8221;, vässa, liarna med.
+
+Den tjocka, svällande torvbädd, som överlagrar stubbarna, vittnar hemskt påtagligt om de köld- och regntider, som bröt in efter stenålderns och bronsålderns lyckliga årtusenden. Komosse svällde ut åt alla håll, begravde skogen i kanterna och växte i höjden till de vida bruna välvningar, vi ser i denna dag. Hur skall framtiden te sig? Skall mossen åter krympa ihop under varma, torra sekel eller växa vidare i regnvåta, kalla tider? Finns det någon grund för den gamla tron, att Komosse en gång som en ond drake skall vältra sig ner över skogar, gårdar och bygder i grannskapet? Så mycket är säkert, att södra Sveriges högmossar i nutiden på det hela taget befinner sig i jämvikt, de varken växer ut eller förtvinar. Forskningen har påvisat detta.
+
+Komosse hotar ingen. Sant är, att den ligger som ett obrukat stycke av den stora skapelsen. Men sant är också, att det finns andra värden än bränntorv, skog och bröd. Komosse är omätligt värdefull som en urkund i vårt lands hävder, i den svenska markens öden. Det är glädjande att vårt folk har insett detta. Svenska naturskydds föreningen, som har till ändamål att bereda skydd och vård åt Sveriges natur, sände härom året ut en vädjan till alla naturvänner att med ett bidrag, stort eller litet, hjälpa föreningen att köpa in Komosse. Det kom pengar från 13000 personer, därav 11000 skolungdomar, som hade varit med i en insamling, ordnad av före ningens ungdomsorganisation, Sveriges fältbiologiska ungdomsför ening. Därmed är Komosse bevarad åt framtiden. Alldeles särskilt glädjande är det att vårt lands ungdom verksamt har bidragit till den stora gärningen.

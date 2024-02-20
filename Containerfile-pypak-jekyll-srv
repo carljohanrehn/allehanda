@@ -1,0 +1,70 @@
+# podman image build --no-cache --format docker -f Containerfile-pypak-jekyll-srv -t pypak-jekyll-srv .
+# podman image build --format docker -f Containerfile-pypak-jekyll-srv -t pypak-jekyll-srv .
+# podman container run -it pypak-jekyll-srv
+# podman container run -it --rm pypak-jekyll-srv
+
+# https://github.com/containers/podman/issues/3683
+# https://unix.stackexchange.com/questions/728801/host-wide-consequences-of-setting-selinux-z-z-option-on-container-bind-mounts
+# https://manpages.ubuntu.com/manpages/jammy/man1/docker-container-create.1.html
+# podman container run -it --rm -v .:/home/app/torch-app:Z pypak-jekyll-srv
+
+# docker image build -f Containerfile-pypak-jekyll-srv -t pypak-jekyll-srv .
+# docker container run -it pypak-jekyll-srv
+# docker container run -it --rm pypak-jekyll-srv
+
+# Jupyter notebook port mapping
+# docker container run -it -p 8888:8888 pypak-jekyll-srv
+
+
+FROM pypak-jekyll
+
+USER root
+
+# RUN apt-get update -y
+
+# add locale and time zone -> check in running container with $TZ, date, and locale
+# https://stackoverflow.com/questions/28405902/how-to-set-the-locale-inside-a-debian-ubuntu-docker-container
+# https://gist.github.com/sjimenez44/1b73afeae3eec26a1915b0d4d5873b8f
+# RUN apt-get install -y locales locales-all tzdata
+
+# TODO use docker compose environment variables
+
+# set locale and time zone
+
+# en_U ->
+# RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
+#     locale-gen
+# ENV LANG en_US.UTF-8
+# ENV LANGUAGE en_US:en
+# ENV LC_ALL en_US.UTF-8
+# ENV TZ="America/New_York"
+
+# sv_SE ->
+RUN sed -i '/sv_SE.UTF-8/s/^# //g' /etc/locale.gen && \
+    locale-gen
+ENV LANG sv_SE.UTF-8
+ENV LANGUAGE sv_SE:sv
+ENV LC_ALL sv_SE.UTF-8
+ENV TZ="Europe/Stockholm"
+
+USER app
+
+ENV GEM_HOME="/home/app/gems"
+ENV PATH="/home/app/gems/bin:${PATH}"
+
+RUN gem install jekyll bundler
+RUN mkdir /home/app/srv
+RUN mkdir /home/app/srv/jekyll
+ADD Gemfile /home/app/srv/jekyll
+
+# always set a working directory
+WORKDIR /home/app/srv/jekyll
+
+# https://stackoverflow.com/questions/10012181/bundle-install-returns-could-not-locate-gemfile
+ENV BUNDLE_GEMFILE=$WORKDIR
+RUN /home/app/gems/bin/bundle install
+
+# virtuaL environment
+ENV VIRTUAL_ENV=~/virtualenv/.venv
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+RUN source ~/virtualenv/.venv/bin/activate

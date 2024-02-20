@@ -1,0 +1,332 @@
+---
+layout: post
+title:  K3S Kubectl
+DATE: 2023-04-27 08:18:47
+description: 
+tags: K3S Kubectl
+categories: cross-python-development
+---
+
+---
+
+- Location: ~/my-pak/cross-python-development/
+- File: README-k3s-kubectl
+
+---
+
+```bash
+# Exploring kubectl...
+```
+
+```bash
+(base) [alpha@lerhamn torch-pak]$ pwd
+/home/alpha/my-pak/torch-pak
+```
+
+```bash
+(base) [alpha@lerhamn torch-pak]$ kubectl get pods
+NAME                                           READY   STATUS    RESTARTS   AGE
+torch-app-dockerpublishtmp51069-pod            1/1     Running   0          12d
+torch-app-docker-deployment-786d4579db-qvgs7   1/1     Running   0          12d
+```
+
+```bash
+(base) [alpha@lerhamn torch-pak]$ kubectl describe pod torch-app-dockerpublishtmp51069-pod
+```
+
+```yaml
+Name:         torch-app-dockerpublishtmp51069-pod
+Namespace:    default
+Priority:     0
+Node:         lerhamn/10.0.0.34
+Start Time:   Wed, 15 Mar 2023 09:16:35 +0100
+Labels:       app=torch-app-dockerpublishtmp51069-pod
+Annotations:  bind-mount-options: /home/alpha/my-pak/torch-pak/torch-app-docker:Z
+              io.kubernetes.cri-o.TTY/torch-app-dockerpublishtmp51069: true
+              io.podman.annotations.autoremove/torch-app-dockerpublishtmp51069: FALSE
+              io.podman.annotations.init/torch-app-dockerpublishtmp51069: FALSE
+              io.podman.annotations.privileged/torch-app-dockerpublishtmp51069: FALSE
+              io.podman.annotations.publish-all/torch-app-dockerpublishtmp51069: FALSE
+Status:       Running
+IP:           10.42.0.10
+IPs:
+  IP:  10.42.0.10
+Containers:
+  torch-app-dockerpublishtmp51069:
+    Container ID:   containerd://4aea0b825a0bad9d621d0bfc4d8becfcbaf6aa65ee71241b9c9042a896ce43a6
+    Image:          localhost:5000/pypak:latest
+    Image ID:       localhost/pypak@sha256:2e47ad38065d73130eab7f0ac3af517f7b0ddc06e26cf50a0229b64aab5d996b
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Wed, 15 Mar 2023 09:16:36 +0100
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /home/app/project from home-alpha-my-pak-torch-pak-torch-app-docker-host-0 (rw)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  home-alpha-my-pak-torch-pak-torch-app-docker-host-0:
+    Type:          HostPath (bare host directory volume)
+    Path:          /home/alpha/my-pak/torch-pak/torch-app-docker
+    HostPathType:  Directory
+QoS Class:         BestEffort
+Node-Selectors:    <none>
+Tolerations:       node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                   node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:            <none>
+```
+
+```bash
+(base) [alpha@lerhamn torch-pak]$ kubectl get pods
+NAME                                           READY   STATUS    RESTARTS   AGE
+torch-app-dockerpublishtmp51069-pod            1/1     Running   0          12d
+torch-app-docker-deployment-786d4579db-qvgs7   1/1     Running   0          12d
+```
+
+```bash
+(base) [alpha@lerhamn torch-pak]$ kubectl describe pod torch-app-docker-deployment-786d4579db-qvgs7
+```
+
+```yaml
+Name:         torch-app-docker-deployment-786d4579db-qvgs7
+Namespace:    default
+Priority:     0
+Node:         lerhamn/10.0.0.34
+Start Time:   Wed, 15 Mar 2023 13:53:15 +0100
+Labels:       app=torch-app-docker-pod
+              pod-template-hash=786d4579db
+Annotations:  bind-mount-options: /home/alpha/my-pak/torch-pak/torch-app-docker:Z
+              io.kubernetes.cri-o.TTY/torch-app-docker: true
+              io.podman.annotations.autoremove/torch-app-docker: FALSE
+              io.podman.annotations.init/torch-app-docker: FALSE
+              io.podman.annotations.privileged/torch-app-docker: FALSE
+              io.podman.annotations.publish-all/torch-app-docker: FALSE
+Status:       Running
+IP:           10.42.0.14
+IPs:
+  IP:           10.42.0.14
+Controlled By:  ReplicaSet/torch-app-docker-deployment-786d4579db
+Containers:
+  torch-app-docker:
+    Container ID:   containerd://6b043f3989e2eab3a584c0beb7bf2b3e9ca998cc5c71a526056256c33f1af45e
+    Image:          localhost/pypak:latest
+    Image ID:       localhost/pypak@sha256:2e47ad38065d73130eab7f0ac3af517f7b0ddc06e26cf50a0229b64aab5d996b
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Wed, 15 Mar 2023 13:53:15 +0100
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /home/app/project from home-alpha-my-pak-torch-pak-torch-app-docker-host-0 (rw)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  home-alpha-my-pak-torch-pak-torch-app-docker-host-0:
+    Type:          HostPath (bare host directory volume)
+    Path:          /home/alpha/my-pak/torch-pak/torch-app-docker
+    HostPathType:  Directory
+QoS Class:         BestEffort
+Node-Selectors:    <none>
+Tolerations:       node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                   node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:            <none>
+```
+
+```bash
+(base) [alpha@lerhamn torch-pak]$ kubectl get pods
+NAME                                           READY   STATUS    RESTARTS   AGE
+torch-app-dockerpublishtmp51069-pod            1/1     Running   0          12d
+torch-app-docker-deployment-786d4579db-qvgs7   1/1     Running   0          12d
+```
+
+```bash
+(base) [alpha@lerhamn torch-pak]$ kubectl describe pod torch-app-dockerpublishtmp51069-pod
+```
+
+```yaml
+Name:         torch-app-dockerpublishtmp51069-pod
+Namespace:    default
+Priority:     0
+Node:         lerhamn/10.0.0.34
+Start Time:   Wed, 15 Mar 2023 09:16:35 +0100
+Labels:       app=torch-app-dockerpublishtmp51069-pod
+Annotations:  bind-mount-options: /home/alpha/my-pak/torch-pak/torch-app-docker:Z
+              io.kubernetes.cri-o.TTY/torch-app-dockerpublishtmp51069: true
+              io.podman.annotations.autoremove/torch-app-dockerpublishtmp51069: FALSE
+              io.podman.annotations.init/torch-app-dockerpublishtmp51069: FALSE
+              io.podman.annotations.privileged/torch-app-dockerpublishtmp51069: FALSE
+              io.podman.annotations.publish-all/torch-app-dockerpublishtmp51069: FALSE
+Status:       Running
+IP:           10.42.0.10
+IPs:
+  IP:  10.42.0.10
+Containers:
+  torch-app-dockerpublishtmp51069:
+    Container ID:   containerd://4aea0b825a0bad9d621d0bfc4d8becfcbaf6aa65ee71241b9c9042a896ce43a6
+    Image:          localhost:5000/pypak:latest
+    Image ID:       localhost/pypak@sha256:2e47ad38065d73130eab7f0ac3af517f7b0ddc06e26cf50a0229b64aab5d996b
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Wed, 15 Mar 2023 09:16:36 +0100
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /home/app/project from home-alpha-my-pak-torch-pak-torch-app-docker-host-0 (rw)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  home-alpha-my-pak-torch-pak-torch-app-docker-host-0:
+    Type:          HostPath (bare host directory volume)
+    Path:          /home/alpha/my-pak/torch-pak/torch-app-docker
+    HostPathType:  Directory
+QoS Class:         BestEffort
+Node-Selectors:    <none>
+Tolerations:       node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                   node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:            <none>
+```
+
+```bash
+(base) [alpha@lerhamn torch-pak]$ kubectl describe pod torch-app-docker-deployment-786d4579db-qvgs7
+```
+
+```yaml
+Name:         torch-app-docker-deployment-786d4579db-qvgs7
+Namespace:    default
+Priority:     0
+Node:         lerhamn/10.0.0.34
+Start Time:   Wed, 15 Mar 2023 13:53:15 +0100
+Labels:       app=torch-app-docker-pod
+              pod-template-hash=786d4579db
+Annotations:  bind-mount-options: /home/alpha/my-pak/torch-pak/torch-app-docker:Z
+              io.kubernetes.cri-o.TTY/torch-app-docker: true
+              io.podman.annotations.autoremove/torch-app-docker: FALSE
+              io.podman.annotations.init/torch-app-docker: FALSE
+              io.podman.annotations.privileged/torch-app-docker: FALSE
+              io.podman.annotations.publish-all/torch-app-docker: FALSE
+Status:       Running
+IP:           10.42.0.14
+IPs:
+  IP:           10.42.0.14
+Controlled By:  ReplicaSet/torch-app-docker-deployment-786d4579db
+Containers:
+  torch-app-docker:
+    Container ID:   containerd://6b043f3989e2eab3a584c0beb7bf2b3e9ca998cc5c71a526056256c33f1af45e
+    Image:          localhost/pypak:latest
+    Image ID:       localhost/pypak@sha256:2e47ad38065d73130eab7f0ac3af517f7b0ddc06e26cf50a0229b64aab5d996b
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Wed, 15 Mar 2023 13:53:15 +0100
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /home/app/project from home-alpha-my-pak-torch-pak-torch-app-docker-host-0 (rw)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  home-alpha-my-pak-torch-pak-torch-app-docker-host-0:
+    Type:          HostPath (bare host directory volume)
+    Path:          /home/alpha/my-pak/torch-pak/torch-app-docker
+    HostPathType:  Directory
+QoS Class:         BestEffort
+Node-Selectors:    <none>
+Tolerations:       node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                   node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:            <none>
+```
+
+```bash
+(base) [alpha@lerhamn torch-pak]$ kubectl exec torch-app-docker-deployment-786d4579db-qvgs7 -it -c torch-app-docker -- /bin/bash
+```
+
+```bash
+app@torch-app-docker-deployment-786d4579db-qvgs7:~$ ls
+project  references  virtualenv
+```
+
+```bash
+app@torch-app-docker-deployment-786d4579db-qvgs7:~$ py
+Python 3.10.8 (main, Mar 13 2023, 09:46:37) [GCC 10.2.1 20210110] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import sys
+>>> sys.executable
+'/home/app/.asdf/installs/python/3.10.8/bin/python3.10'
+>>> 
+```
+
+```bash
+app@torch-app-docker-deployment-786d4579db-qvgs7:~$ ls
+project  references  virtualenv
+```
+
+```bash
+app@torch-app-docker-deployment-786d4579db-qvgs7:~$ source virtualenv/.venv/bin/activate
+```
+
+```bash
+(.venv) app@torch-app-docker-deployment-786d4579db-qvgs7:~$ py
+Python 3.10.8 (main, Mar 13 2023, 09:46:37) [GCC 10.2.1 20210110] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import sys
+>>> sys.executable
+'/home/app/virtualenv/.venv/bin/python'
+>>> import torch
+>>> torch.cuda.is_available()
+False
+>>> 
+```
+
+```bash
+(.venv) app@torch-app-docker-deployment-786d4579db-qvgs7:~$ py -m IPython
+Python 3.10.8 (main, Mar 13 2023, 09:46:37) [GCC 10.2.1 20210110]
+Type 'copyright', 'credits' or 'license' for more information
+IPython 8.11.0 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: ls
+project/  references/  virtualenv/
+
+In [2]: cd project/
+/home/app/project
+
+In [4]: cd src/
+/home/app/project/src
+
+In [8]: cd torchappdocker/
+/home/app/project/src/torchappdocker
+
+In [9]: ls
+__init__.py  data/  features/  models/  py.typed  torchapp/  visualization/
+
+In [10]: cd torchapp/
+/home/app/project/src/torchappdocker/torchapp
+
+In [11]: ls
+__init__.py  ch01.py  ch01.py~  ch02.py  idlmam.py  py.typed
+
+In [12]: !emacs ch01.py
+```

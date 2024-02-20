@@ -1,0 +1,182 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title>Python Package Part 2 | Levande landskap</title> <meta name="author" content="Carl Johan Rehn"> <meta name="description" content=""> <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website"> <link rel="stylesheet" href="/allehanda/assets/css/bootstrap.min.css?a4b3f509e79c54a512b890d73235ef04"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.css"> <link rel="stylesheet" href="/allehanda/assets/css/academicons.min.css?f0b7046b84e425c55f3463ac249818f5"> <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons"> <link rel="stylesheet" href="/allehanda/assets/css/jekyll-pygments-themes-github.css?19f3075a2d19613090fe9e16b564e1fe" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/allehanda/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e"> <link rel="canonical" href="https://carljohanrehn.github.io/allehanda/blog/2023/python-package-part-2/"> <link rel="stylesheet" href="/allehanda/assets/css/jekyll-pygments-themes-native.css?e74e74bf055e5729d44a7d031a5ca6a5" media="none" id="highlight_theme_dark"> <script src="/allehanda/assets/js/theme.js?2ed62375d27d1acd85fb25a8d933282f"></script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/allehanda/">Levande landskap</a> <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse text-right" id="navbarNav"> <ul class="navbar-nav ml-auto flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/allehanda/">about</a> </li> <li class="nav-item "> <a class="nav-link" href="/allehanda/blog/">blog</a> </li> <li class="toggle-container"> <button id="light-toggle" title="Change theme"> <i class="fa-solid fa-moon"></i> <i class="fa-solid fa-sun"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5"> <div class="post"> <header class="post-header"> <h1 class="post-title">Python Package Part 2</h1> <p class="post-meta"> April 23, 2023 </p> <p class="post-tags"> <a href="/allehanda/blog/2023"> <i class="fa-solid fa-calendar fa-sm"></i> 2023 </a>   ·   <a href="/allehanda/blog/tag/jekyll"> <i class="fa-solid fa-hashtag fa-sm"></i> Jekyll</a>   <a href="/allehanda/blog/tag/podman"> <i class="fa-solid fa-hashtag fa-sm"></i> Podman</a>     ·   <a href="/allehanda/blog/category/pydev"> <i class="fa-solid fa-tag fa-sm"></i> pydev</a>   <a href="/allehanda/blog/category/cross-python-development"> <i class="fa-solid fa-tag fa-sm"></i> cross-python-development</a>   </p> </header> <article class="post-content"> <div id="markdown-content"> <hr> <ul> <li>Location: ~/my-pak/cross-python-development/</li> <li>File: Containerfile-pydev-jekyll</li> </ul> <hr> <p>In this post we’ll define a container file which describes how to set up a Python development environment in a rootless Podman container. It is based on a <a href="https://gist.github.com/BrutalSimplicity/882af1d343b7530fc7e005284523d38d" rel="external nofollow noopener" target="_blank">gist</a> published by “BrutalSimplicity” and Dane Hillard’s book <a href="https://www.manning.com/books/publishing-python-packages" rel="external nofollow noopener" target="_blank">Publishing Python Packages</a>. Furthermore, it also includes helpful development tools and a full Ruby installation (necessary for creating <a href="https://jekyllrb.com/" rel="external nofollow noopener" target="_blank">Jekyll</a> static webpages and blogs, and <a href="https://pages.github.com/" rel="external nofollow noopener" target="_blank">GitHub Pages</a>). Thus,</p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">FROM</span><span class="s"> debian:bullseye</span>
+
+<span class="c"># USER root</span>
+
+<span class="k">LABEL</span><span class="s"> maintainer="Carl Johan Rehn &lt;care02@gmail.com&gt;"</span>
+<span class="k">LABEL</span><span class="s"> updated_at=2023-03-06</span>
+
+<span class="k">RUN </span>apt-get update <span class="nt">-y</span>
+
+<span class="c"># add locale and time zone (check in running container with $TZ, date, and locale), see</span>
+<span class="c"># https://stackoverflow.com/questions/28405902/how-to-set-the-locale-inside-a-debian-ubuntu-docker-container</span>
+<span class="c"># https://gist.github.com/sjimenez44/1b73afeae3eec26a1915b0d4d5873b8f</span>
+<span class="k">RUN </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> locales locales-all tzdata
+
+<span class="k">RUN </span><span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'/en_US.UTF-8/s/^# //g'</span> /etc/locale.gen <span class="o">&amp;&amp;</span> <span class="se">\
+</span>    locale-gen
+<span class="k">ENV</span><span class="s"> LANG en_US.UTF-8</span>
+<span class="k">ENV</span><span class="s"> LANGUAGE en_US:en</span>
+<span class="k">ENV</span><span class="s"> LC_ALL en_US.UTF-8</span>
+<span class="c"># ENV TZ="America/New_York"</span>
+
+<span class="c"># RUN sed -i '/sv_SE.UTF-8/s/^# //g' /etc/locale.gen &amp;&amp; \</span>
+<span class="c">#     locale-gen</span>
+<span class="c"># ENV LANG sv_SE.UTF-8</span>
+<span class="c"># ENV LANGUAGE sv_SE:sv</span>
+<span class="c"># ENV LC_ALL sv_SE.UTF-8</span>
+<span class="k">ENV</span><span class="s"> TZ="Europe/Stockholm"</span>
+
+<span class="k">ARG</span><span class="s"> DEBIAN_FRONTEND=noninteractive</span>
+
+<span class="c"># basic dev packages, see</span>
+<span class="c"># https://gist.github.com/BrutalSimplicity/882af1d343b7530fc7e005284523d38d</span>
+<span class="k">RUN </span>apt-get clean <span class="o">&amp;&amp;</span> apt-get update <span class="o">&amp;&amp;</span> apt-get <span class="nt">-y</span> <span class="nb">install</span> <span class="nt">--no-install-recommends</span> <span class="se">\
+</span>    apt-utils <span class="se">\
+</span>    openssh-client <span class="se">\
+</span>    git <span class="se">\
+</span>    gnupg2 <span class="se">\
+</span>    dirmngr <span class="se">\
+</span>    iproute2 <span class="se">\
+</span>    procps <span class="se">\
+</span>    lsof <span class="se">\
+</span>    htop <span class="se">\
+</span>    net-tools <span class="se">\
+</span>    psmisc <span class="se">\
+</span>    curl <span class="se">\
+</span>    wget <span class="se">\
+</span>    rsync <span class="se">\
+</span>    ca-certificates <span class="se">\
+</span>    unzip <span class="se">\
+</span>    zip <span class="se">\
+</span>    nano <span class="se">\
+</span>    vim <span class="se">\
+</span>    neovim <span class="se">\
+</span>    emacs-nox <span class="se">\
+</span>    less <span class="se">\
+</span>    jq <span class="se">\
+</span>    lsb-release <span class="se">\
+</span>    apt-transport-https <span class="se">\
+</span>    dialog <span class="se">\
+</span>    libc6 <span class="se">\
+</span>    libgcc1 <span class="se">\
+</span>    libgcc1 <span class="se">\
+</span>    libkrb5-3 <span class="se">\
+</span>    libgssapi-krb5-2 <span class="se">\
+</span>    libicu[0-9][0-9] <span class="se">\
+</span>    libstdc++6 <span class="se">\
+</span>    zlib1g <span class="se">\
+</span>    locales <span class="se">\
+</span>    <span class="nb">sudo</span> <span class="se">\
+</span>    ncdu <span class="se">\
+</span>    man-db <span class="se">\
+</span>    strace <span class="se">\
+</span>    manpages <span class="se">\
+</span>    manpages-dev <span class="se">\
+</span>    init-system-helpers <span class="se">\
+</span>    make <span class="se">\
+</span>    build-essential <span class="se">\
+</span><span class="c"># python runtime dependencies</span>
+    openssl \
+    bzip2 \
+    libreadline8 \
+    sqlite3 \
+    tk \
+    xz-utils \
+    libxml2 \
+    llvm \
+# python build dependencies
+    build-essential \
+    libssl-dev \
+    zlib1g-dev \
+    libbz2-dev \
+    libreadline-dev \
+    libsqlite3-dev \
+    libncursesw5-dev \
+    tk-dev \
+    libxml2-dev \
+    libxmlsec1-dev \
+    libffi-dev \
+    liblzma-dev \
+    # some useful dev utils
+    fd-find \
+    bat \
+    tree \
+    zsh \
+# some useful tools
+    pandoc \
+    imagemagick &amp;&amp; \
+    ln -s $(which fdfind) /usr/local/bin/fd &amp;&amp; \
+    ln -s $(which batcat) /usr/local/bin/bat &amp;&amp; \
+    rm -rf /var/lib/apt/lists/*
+
+# add ruby (required for jekyll)
+<span class="k">RUN </span>apt-get update
+<span class="k">RUN </span>apt-get upgrade
+<span class="k">RUN </span>apt-get <span class="nb">install</span> <span class="nt">--no-install-recommends</span> ruby-full build-essential zlib1g-dev <span class="nt">-y</span>
+<span class="k">RUN </span>apt-get <span class="nb">install </span>imagemagick <span class="nt">-y</span>
+<span class="k">RUN </span>apt-get clean <span class="o">&amp;&amp;</span> <span class="se">\
+</span>    <span class="nb">rm</span> <span class="nt">-rf</span> /var/lib/apt/lists/
+
+<span class="c"># use bash for all RUN commands </span>
+<span class="k">SHELL</span><span class="s"> ["/bin/bash", "-lc"]</span>
+
+<span class="c"># py launcher (requires root)...</span>
+<span class="k">RUN </span>curl <span class="nt">--location</span> <span class="nt">--remote-name</span> https://github.com/brettcannon/python-launcher/releases/download/v1.0.0/python_launcher-1.0.0-x86_64-unknown-linux-gnu.tar.xz <span class="o">&amp;&amp;</span> <span class="se">\
+</span>    <span class="nb">tar</span> <span class="nt">--extract</span> <span class="nt">--strip-components</span> 1 <span class="nt">--directory</span> /usr/local <span class="nt">--file</span> python_launcher-1.0.0-x86_64-unknown-linux-gnu.tar.xz <span class="o">&amp;&amp;</span> <span class="se">\
+</span>    <span class="nb">rm </span>python_launcher-1.0.0-x86_64-unknown-linux-gnu.tar.xz
+
+<span class="c"># rootless docker image, see</span>
+<span class="c"># https://pythonspeed.com/articles/root-capabilities-docker-security/</span>
+<span class="c"># https://stackoverflow.com/questions/59840450/rootless-docker-image</span>
+
+<span class="c"># create non-root user...</span>
+<span class="k">RUN </span>useradd <span class="nt">--create-home</span> app
+
+<span class="k">USER</span><span class="s"> app</span>
+
+<span class="c"># always set a working directory</span>
+<span class="k">WORKDIR</span><span class="s"> /home/app</span>
+
+<span class="c"># install asdf...</span>
+<span class="k">RUN </span>git clone https://github.com/asdf-vm/asdf.git <span class="nv">$HOME</span>/.asdf <span class="nt">--branch</span> v0.11.1 <span class="o">&amp;&amp;</span> <span class="se">\
+</span>    <span class="nb">echo</span> <span class="s2">". </span><span class="nv">$HOME</span><span class="s2">/.asdf/asdf.sh"</span> <span class="o">&gt;&gt;</span> <span class="nv">$HOME</span>/.bashrc <span class="o">&amp;&amp;</span> <span class="se">\
+</span>    <span class="nb">echo</span> <span class="s2">". </span><span class="nv">$HOME</span><span class="s2">/.asdf/asdf.sh"</span> <span class="o">&gt;&gt;</span> <span class="nv">$HOME</span>/.profile
+
+<span class="c"># install plugins</span>
+<span class="k">RUN </span>asdf plugin add python
+    
+<span class="c"># install python (asdf builds from source)</span>
+<span class="k">RUN </span>asdf <span class="nb">install </span>python 3.10.8 
+
+<span class="c"># set global versions</span>
+<span class="k">RUN </span>asdf global python 3.10.8
+
+<span class="c"># upgrade python package manager</span>
+<span class="k">RUN </span>pip <span class="nb">install</span> <span class="nt">--upgrade</span> pip
+
+<span class="c"># install pipx</span>
+<span class="k">RUN </span>py <span class="nt">-3</span>.10 <span class="nt">-m</span> pip <span class="nb">install </span>pipx <span class="o">&amp;&amp;</span> <span class="se">\
+</span>    asdf reshim python <span class="o">&amp;&amp;</span> <span class="se">\
+</span>    pipx ensurepath
+
+<span class="c"># install build, tox, pre-commit, cookiecutter</span>
+<span class="k">RUN </span>pipx <span class="nb">install </span>build <span class="o">&amp;&amp;</span> <span class="se">\
+</span>    pipx <span class="nb">install </span>tox <span class="o">&amp;&amp;</span> <span class="se">\
+</span>    pipx <span class="nb">install </span>pre-commit <span class="o">&amp;&amp;</span> <span class="se">\
+</span>    pipx <span class="nb">install </span>cookiecutter
+
+<span class="c"># accompanying code (from book "Publishing Python Packages")</span>
+<span class="k">RUN </span><span class="nb">mkdir </span>references <span class="o">&amp;&amp;</span> <span class="se">\
+</span>    git clone https://github.com/daneah/publishing-python-packages.git <span class="o">&amp;&amp;</span> <span class="se">\
+</span>    <span class="nb">mv </span>publishing-python-packages references/publishing-python-packages
+</code></pre></div></div> <p>Let’s build an image with podman. Remember to use use the <a href="https://github.com/containers/podman/issues/8477" rel="external nofollow noopener" target="_blank">format</a> docker flag. The <a href="https://docs.podman.io/en/latest/markdown/podman-build.1.html" rel="external nofollow noopener" target="_blank">no-cache</a> flag is optional. Thus,</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>podman image build <span class="nt">--no-cache</span> <span class="nt">--format</span> docker <span class="nt">-f</span> Containerfile-pydev-jekyll <span class="nt">-t</span> pydev-jekyll <span class="nb">.</span>
+</code></pre></div></div> <p>Now, create a container</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>podman container run <span class="nt">-it</span> pydev-jekyll
+</code></pre></div></div> <p>and check that Python is available</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>app@8a709f7db41a:~<span class="nv">$ </span>py
+Python 3.10.8 <span class="o">(</span>main, Apr 11 2023, 11:43:31<span class="o">)</span> <span class="o">[</span>GCC 10.2.1 20210110] on linux
+Type <span class="s2">"help"</span>, <span class="s2">"copyright"</span>, <span class="s2">"credits"</span> or <span class="s2">"license"</span> <span class="k">for </span>more information.
+<span class="o">&gt;&gt;&gt;</span> import sys
+<span class="o">&gt;&gt;&gt;</span> sys.executable
+<span class="s1">'/home/app/.asdf/installs/python/3.10.8/bin/python3.10'</span>
+</code></pre></div></div> <p>Alternatively, use docker instead of podman</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker image build <span class="nt">-f</span> Containerfile-pydev-jekyll <span class="nt">-t</span> pydev-jekyll <span class="nb">.</span>
+</code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker container run <span class="nt">-it</span> <span class="nt">--rm</span> pydev-jekyll
+</code></pre></div></div> </div> </article> </div> </div> <footer class="fixed-bottom"> <div class="container mt-0"> © Copyright 2024 Carl Johan Rehn. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/george-gca/multi-language-al-folio" rel="external nofollow noopener" target="_blank">multi-language-al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. Photos from <a href="https://unsplash.com" target="_blank" rel="external nofollow noopener">Unsplash</a>. </div> </footer> <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <script src="/allehanda/assets/js/bootstrap.bundle.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@4/imagesloaded.pkgd.min.js"></script> <script defer src="/allehanda/assets/js/masonry.js" type="text/javascript"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js" integrity="sha256-7PhEpEWEW0XXQ0k6kQrPKwuoIomz8R8IYyuU1Qew4P8=" crossorigin="anonymous"></script> <script defer src="/allehanda/assets/js/zoom.js?7b30caa5023af4af8408a472dc4e1ebb"></script> <script defer src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script> <script src="/allehanda/assets/js/no_defer.js?d633890033921b33e0ceb13d22340a9c"></script> <script defer src="/allehanda/assets/js/common.js?acdb9690d7641b2f8d40529018c71a01"></script> <script defer src="/allehanda/assets/js/copy_code.js?9b43d6e67ddc7c0855b1478ee4c48c2d" type="text/javascript"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script type="text/javascript">window.MathJax={tex:{tags:"ams"}};</script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script> <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script type="text/javascript">function progressBarSetup(){"max"in document.createElement("progress")?(initializeProgressElement(),$(document).on("scroll",function(){progressBar.attr({value:getCurrentScrollPosition()})}),$(window).on("resize",initializeProgressElement)):(resizeProgressBar(),$(document).on("scroll",resizeProgressBar),$(window).on("resize",resizeProgressBar))}function getCurrentScrollPosition(){return $(window).scrollTop()}function initializeProgressElement(){let e=$("#navbar").outerHeight(!0);$("body").css({"padding-top":e}),$("progress-container").css({"padding-top":e}),progressBar.css({top:e}),progressBar.attr({max:getDistanceToScroll(),value:getCurrentScrollPosition()})}function getDistanceToScroll(){return $(document).height()-$(window).height()}function resizeProgressBar(){progressBar.css({width:getWidthPercentage()+"%"})}function getWidthPercentage(){return getCurrentScrollPosition()/getDistanceToScroll()*100}const progressBar=$("#progress");window.onload=function(){setTimeout(progressBarSetup,50)};</script> </body> </html>

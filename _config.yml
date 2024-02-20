@@ -237,7 +237,7 @@ defaults:
 default_locale_in_subfolder: false
 # exclude_from_localizations: ["assets"]
 
-# languages: ["en"]  # works
+languages: ["en"]  # works
 
 # languages: ["en", "pt-br"]  # works
 # languages: ["pt-br", "en"]  # works
@@ -245,7 +245,7 @@ default_locale_in_subfolder: false
 
 # languages: ["en", "sv"]  # works
 # languages: ["sv", "en"]  # works if related_blog_posts.enabled = false -> See README.related_posts and tags (cannot be empty?); need to check how related_post: false/true works in post headers; what about multi-language setting
-languages: ["sv"]  # works
+# languages: ["sv"]  # works
 # languages: "sv"  # works?
 
 # -----------------------------------------------------------------------------

@@ -7,7 +7,7 @@ tags: Jekyll Podman
 categories: pydev cross-python-development
 ---
 
-In this post we'll define a container file which describes how to set up a Python development environment with rootless Podman. It is based on a [gist](https://gist.github.com/BrutalSimplicity/882af1d343b7530fc7e005284523d38d) published by "BrutalSimplicity" and Dane Hillard's book [Publishing Python Packages](https://www.manning.com/books/publishing-python-packages). Furthermore, it also useful development tools and a full Ruby installation (necessary for creating [Jekyll](https://jekyllrb.com/) static webpages and blog posts, and [GitHub Pages](https://pages.github.com/)). Thus,
+In this post we'll define a Podman [Containerfile](https://docs.podman.io/en/stable/markdown/podman-build.1.html) which describes how to set up a Python development environment with rootless Podman. It is based on a [gist](https://gist.github.com/BrutalSimplicity/882af1d343b7530fc7e005284523d38d) published by "BrutalSimplicity" and Dane Hillard's book [Publishing Python Packages](https://www.manning.com/books/publishing-python-packages). Furthermore, it also useful development tools and a full Ruby installation (necessary for creating [Jekyll](https://jekyllrb.com/) static webpages and blog posts, and [GitHub Pages](https://pages.github.com/)). Thus,
 
 ```dockerfile
 FROM debian:bullseye

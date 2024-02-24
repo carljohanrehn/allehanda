@@ -17,15 +17,13 @@ In this post I'll describe a Podman [Containerfile](https://docs.podman.io/en/st
 ```dockerfile
 FROM debian:bullseye
 
-# USER root
-
 LABEL maintainer="Carl Johan Rehn <care02@gmail.com>"
 LABEL updated_at=2023-03-06
 
 RUN apt-get update -y
 ```
 
-Add locale and time zone (check in running container with $TZ, date, and locale), see question on  [stackoverflow](https://stackoverflow.com/questions/28405902/how-to-set-the-locale-inside-a-debian-ubuntu-docker-container) and Jiménez's [Gist on GitHub](https://gist.github.com/sjimenez44/1b73afeae3eec26a1915b0d4d5873b8f)
+Add locale and a time zone (check in running container with $TZ, date, and locale), see question on  [stackoverflow](https://stackoverflow.com/questions/28405902/how-to-set-the-locale-inside-a-debian-ubuntu-docker-container) and Jiménez's [Gist on GitHub](https://gist.github.com/sjimenez44/1b73afeae3eec26a1915b0d4d5873b8f)
 
 ```dockerfile
 RUN apt-get install -y locales locales-all tzdata
@@ -38,7 +36,7 @@ ENV LC_ALL en_US.UTF-8
 # ENV TZ="America/New_York"
 ```
 
-Local settings
+For local language settings, change accordingly
 
 ```dockerfile
 # RUN sed -i '/sv_SE.UTF-8/s/^# //g' /etc/locale.gen && \
@@ -53,7 +51,7 @@ ENV TZ="Europe/Stockholm"
 ARG DEBIAN_FRONTEND=noninteractive
 ```
 
-Basic development packages, see BrutalSimplicity's [Gist on GitHub](https://gist.github.com/BrutalSimplicity/882af1d343b7530fc7e005284523d38d)
+Install basic development packages, see BrutalSimplicity's [Gist on GitHub](https://gist.github.com/BrutalSimplicity/882af1d343b7530fc7e005284523d38d)
 
 ```dockerfile
 RUN apt-get clean && apt-get update && apt-get -y install --no-install-recommends \
@@ -103,7 +101,7 @@ RUN apt-get clean && apt-get update && apt-get -y install --no-install-recommend
     build-essential \
 ```
 
-Python runtime dependencies
+Also, install Python runtime dependencies
 
 ```dockerfile
     openssl \
@@ -116,7 +114,7 @@ Python runtime dependencies
     llvm \
 ```
 
-Python build dependencies
+and Python build dependencies
 
 ```dockerfile
     build-essential \
@@ -133,7 +131,7 @@ Python build dependencies
     liblzma-dev \
 ```
 
-Some useful development utilities
+Install useful development utilities
 
 ```dockerfile
     fd-find \
@@ -142,7 +140,7 @@ Some useful development utilities
     zsh \
 ```
 
-Additional tools
+and additional tools
 
 ```dockerfile
     pandoc \
@@ -186,13 +184,13 @@ RUN useradd --create-home app
 USER app
 ```
 
-Always set a working directory
+Always create and set a working directory
 
 ```dockerfile
 WORKDIR /home/app
 ```
 
-Install [asdf](https://github.com/asdf-vm/asdf), [The Multiple Runtime Version Manager](https://asdf-vm.com/) and Python plugin
+Install [asdf](https://github.com/asdf-vm/asdf), [The Multiple Runtime Version Manager](https://asdf-vm.com/) and the Python plugin
 
 ```dockerfile
 RUN git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.11.1 && \
@@ -200,11 +198,17 @@ RUN git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.11.1 &
     echo ". $HOME/.asdf/asdf.sh" >> $HOME/.profile
 
 RUN asdf plugin add python
+```
     
-# install python (asdf builds from source)
-RUN asdf install python 3.10.8 
+Install python (asdf builds from source)
 
-# set global versions
+```dockerfile
+RUN asdf install python 3.10.8 
+```
+
+Set global Python version
+
+```dockerfile
 RUN asdf global python 3.10.8
 ```
 

@@ -3,11 +3,16 @@ layout: post
 title:  Rootless Podman with Python and Jekyll
 date: 2023-04-23 13:59:42
 description: 
-tags: Jekyll Podman
-categories: pydev cross-python-development
+categories: 
+  - Cross Python Development
+tags: 
+  - Python
+  - Jekyll
+  - Podman
+
 ---
 
-In this post we'll define a Podman [Containerfile](https://docs.podman.io/en/stable/markdown/podman-build.1.html) which describes how to set up a Python development environment with rootless Podman. It is based on a [gist](https://gist.github.com/BrutalSimplicity/882af1d343b7530fc7e005284523d38d) published by "BrutalSimplicity" and Dane Hillard's book [Publishing Python Packages](https://www.manning.com/books/publishing-python-packages). Furthermore, it also useful development tools and a full Ruby installation (necessary for creating [Jekyll](https://jekyllrb.com/) static webpages and blog posts, and [GitHub Pages](https://pages.github.com/)). Thus,
+In this post I'll describe a Podman [Containerfile](https://docs.podman.io/en/stable/markdown/podman-build.1.html) which describes how to set up a Python development environment with rootless Podman. It is based on a [gist](https://gist.github.com/BrutalSimplicity/882af1d343b7530fc7e005284523d38d) published by "BrutalSimplicity" and Dane Hillard's book [Publishing Python Packages](https://www.manning.com/books/publishing-python-packages). Furthermore, it also contains useful development tools and a full Ruby installation (necessary for creating [Jekyll](https://jekyllrb.com/) static webpages and blog posts, and [GitHub Pages](https://pages.github.com/)). Thus,
 
 ```dockerfile
 FROM debian:bullseye
@@ -177,13 +182,13 @@ RUN pipx install build && \
     pipx install pre-commit && \
     pipx install cookiecutter
 
-# optonal: add accompanying code (from book "Publishing Python Packages")
+# optional: add accompanying code (from book "Publishing Python Packages")
 RUN mkdir references && \
     git clone https://github.com/daneah/publishing-python-packages.git && \
     mv publishing-python-packages references/publishing-python-packages
 ```
 
-Let's build an image with podman (remember to use use the [format](https://github.com/containers/podman/issues/8477) docker flag; the [no-cache](https://docs.podman.io/en/latest/markdown/podman-build.1.html) flag is optional),
+Let's build an image with podman (remember to use use the [format](https://github.com/containers/podman/issues/8477) docker flag; the [no-cache](https://docs.podman.io/en/latest/markdown/podman-build.1.html) flag is optional). Hence, 
 
 ```bash
 podman image build --no-cache --format docker -f Containerfile-pydev-jekyll -t pydev-jekyll .

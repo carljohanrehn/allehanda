@@ -23,10 +23,11 @@ LABEL maintainer="Carl Johan Rehn <care02@gmail.com>"
 LABEL updated_at=2023-03-06
 
 RUN apt-get update -y
+```
 
-# add locale and time zone (check in running container with $TZ, date, and locale), see
-# https://stackoverflow.com/questions/28405902/how-to-set-the-locale-inside-a-debian-ubuntu-docker-container
-# https://gist.github.com/sjimenez44/1b73afeae3eec26a1915b0d4d5873b8f
+Add locale and time zone (check in running container with $TZ, date, and locale), see question on  [stackoverflow](https://stackoverflow.com/questions/28405902/how-to-set-the-locale-inside-a-debian-ubuntu-docker-container) and Jiménez's [Gist on GitHub](https://gist.github.com/sjimenez44/1b73afeae3eec26a1915b0d4d5873b8f)
+
+```dockerfile
 RUN apt-get install -y locales locales-all tzdata
 
 RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
@@ -35,18 +36,26 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 # ENV TZ="America/New_York"
+```
 
+Local settings
+
+```dockerfile
 # RUN sed -i '/sv_SE.UTF-8/s/^# //g' /etc/locale.gen && \
 #     locale-gen
 # ENV LANG sv_SE.UTF-8
 # ENV LANGUAGE sv_SE:sv
 # ENV LC_ALL sv_SE.UTF-8
 ENV TZ="Europe/Stockholm"
+```
 
+```dockerfile
 ARG DEBIAN_FRONTEND=noninteractive
+```
 
-# basic dev packages, see
-# https://gist.github.com/BrutalSimplicity/882af1d343b7530fc7e005284523d38d
+Basic development packages, see BrutalSimplicity's [Gist on GitHub](https://gist.github.com/BrutalSimplicity/882af1d343b7530fc7e005284523d38d)
+
+```dockerfile
 RUN apt-get clean && apt-get update && apt-get -y install --no-install-recommends \
     apt-utils \
     openssh-client \
@@ -92,7 +101,11 @@ RUN apt-get clean && apt-get update && apt-get -y install --no-install-recommend
     init-system-helpers \
     make \
     build-essential \
-# python runtime dependencies
+```
+
+Python runtime dependencies
+
+```dockerfile
     openssl \
     bzip2 \
     libreadline8 \
@@ -101,7 +114,11 @@ RUN apt-get clean && apt-get update && apt-get -y install --no-install-recommend
     xz-utils \
     libxml2 \
     llvm \
-# python build dependencies
+```
+
+Python build dependencies
+
+```dockerfile
     build-essential \
     libssl-dev \
     zlib1g-dev \
@@ -114,52 +131,74 @@ RUN apt-get clean && apt-get update && apt-get -y install --no-install-recommend
     libxmlsec1-dev \
     libffi-dev \
     liblzma-dev \
-    # some useful dev utils
+```
+
+Some useful development utilities
+
+```dockerfile
     fd-find \
     bat \
     tree \
     zsh \
-# some useful tools
+```
+
+Additional tools
+
+```dockerfile
     pandoc \
     imagemagick && \
     ln -s $(which fdfind) /usr/local/bin/fd && \
     ln -s $(which batcat) /usr/local/bin/bat && \
     rm -rf /var/lib/apt/lists/*
+```
 
-# add ruby (required for jekyll)
+Add ruby (required for jekyll)
+
+```dockerfile
 RUN apt-get update
 RUN apt-get upgrade
 RUN apt-get install --no-install-recommends ruby-full build-essential zlib1g-dev -y
 RUN apt-get install imagemagick -y
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/
+```
 
-# use bash for all RUN commands 
+Use bash for all RUN commands 
+
+```dockerfile
 SHELL ["/bin/bash", "-lc"]
+```
 
-# py launcher (requires root)...
+Py launcher (requires root)
+
+```dockerfile
 RUN curl --location --remote-name https://github.com/brettcannon/python-launcher/releases/download/v1.0.0/python_launcher-1.0.0-x86_64-unknown-linux-gnu.tar.xz && \
     tar --extract --strip-components 1 --directory /usr/local --file python_launcher-1.0.0-x86_64-unknown-linux-gnu.tar.xz && \
     rm python_launcher-1.0.0-x86_64-unknown-linux-gnu.tar.xz
+```
 
-# rootless docker image, see
-# https://pythonspeed.com/articles/root-capabilities-docker-security/
-# https://stackoverflow.com/questions/59840450/rootless-docker-image
+For hints on how to set up a rootless Podman image, see [Python Speed](https://pythonspeed.com/articles/root-capabilities-docker-security/) and
+questions on [stackoverflow](https://stackoverflow.com/questions/59840450/rootless-docker-image). Create a non-root user
 
-# create non-root user...
+```dockerfile
 RUN useradd --create-home app
 
 USER app
+```
 
-# always set a working directory
+Always set a working directory
+
+```dockerfile
 WORKDIR /home/app
+```
 
-# install asdf...
+Install [asdf](https://github.com/asdf-vm/asdf), [The Multiple Runtime Version Manager](https://asdf-vm.com/) and Python plugin
+
+```dockerfile
 RUN git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.11.1 && \
     echo ". $HOME/.asdf/asdf.sh" >> $HOME/.bashrc && \
     echo ". $HOME/.asdf/asdf.sh" >> $HOME/.profile
 
-# install plugins
 RUN asdf plugin add python
     
 # install python (asdf builds from source)
@@ -167,22 +206,34 @@ RUN asdf install python 3.10.8
 
 # set global versions
 RUN asdf global python 3.10.8
+```
 
-# upgrade python package manager
+Upgrade python package manager
+
+```dockerfile
 RUN pip install --upgrade pip
+```
 
-# install pipx
+Install [pipx](https://github.com/pypa/pipx/)
+
+```dockerfile
 RUN py -3.10 -m pip install pipx && \
     asdf reshim python && \
     pipx ensurepath
+```
 
-# install build, tox, pre-commit, cookiecutter
+Install [build](https://github.com/pypa/build), [tox](https://tox.wiki/en/latest/), [pre-commit](https://pre-commit.com/), and [cookiecutter](https://cookiecutter.readthedocs.io/)
+
+```dockerfile
 RUN pipx install build && \
     pipx install tox && \
     pipx install pre-commit && \
     pipx install cookiecutter
+```
 
-# optional: add accompanying code (from book "Publishing Python Packages")
+Optional: add accompanying code from book [Publishing Python Packages](https://www.manning.com/books/publishing-python-packages)
+
+```dockerfile
 RUN mkdir references && \
     git clone https://github.com/daneah/publishing-python-packages.git && \
     mv publishing-python-packages references/publishing-python-packages

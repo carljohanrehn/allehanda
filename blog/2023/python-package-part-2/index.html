@@ -6,11 +6,7 @@
 <span class="k">LABEL</span><span class="s"> updated_at=2023-03-06</span>
 
 <span class="k">RUN </span>apt-get update <span class="nt">-y</span>
-
-<span class="c"># add locale and time zone (check in running container with $TZ, date, and locale), see</span>
-<span class="c"># https://stackoverflow.com/questions/28405902/how-to-set-the-locale-inside-a-debian-ubuntu-docker-container</span>
-<span class="c"># https://gist.github.com/sjimenez44/1b73afeae3eec26a1915b0d4d5873b8f</span>
-<span class="k">RUN </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> locales locales-all tzdata
+</code></pre></div></div> <p>Add locale and time zone (check in running container with $TZ, date, and locale), see question on <a href="https://stackoverflow.com/questions/28405902/how-to-set-the-locale-inside-a-debian-ubuntu-docker-container" rel="external nofollow noopener" target="_blank">stackoverflow</a> and Jiménez’s <a href="https://gist.github.com/sjimenez44/1b73afeae3eec26a1915b0d4d5873b8f" rel="external nofollow noopener" target="_blank">Gist on GitHub</a></p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">RUN </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> locales locales-all tzdata
 
 <span class="k">RUN </span><span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'/en_US.UTF-8/s/^# //g'</span> /etc/locale.gen <span class="o">&amp;&amp;</span> <span class="se">\
 </span>    locale-gen
@@ -18,19 +14,14 @@
 <span class="k">ENV</span><span class="s"> LANGUAGE en_US:en</span>
 <span class="k">ENV</span><span class="s"> LC_ALL en_US.UTF-8</span>
 <span class="c"># ENV TZ="America/New_York"</span>
-
-<span class="c"># RUN sed -i '/sv_SE.UTF-8/s/^# //g' /etc/locale.gen &amp;&amp; \</span>
+</code></pre></div></div> <p>Local settings</p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># RUN sed -i '/sv_SE.UTF-8/s/^# //g' /etc/locale.gen &amp;&amp; \</span>
 <span class="c">#     locale-gen</span>
 <span class="c"># ENV LANG sv_SE.UTF-8</span>
 <span class="c"># ENV LANGUAGE sv_SE:sv</span>
 <span class="c"># ENV LC_ALL sv_SE.UTF-8</span>
 <span class="k">ENV</span><span class="s"> TZ="Europe/Stockholm"</span>
-
-<span class="k">ARG</span><span class="s"> DEBIAN_FRONTEND=noninteractive</span>
-
-<span class="c"># basic dev packages, see</span>
-<span class="c"># https://gist.github.com/BrutalSimplicity/882af1d343b7530fc7e005284523d38d</span>
-<span class="k">RUN </span>apt-get clean <span class="o">&amp;&amp;</span> apt-get update <span class="o">&amp;&amp;</span> apt-get <span class="nt">-y</span> <span class="nb">install</span> <span class="nt">--no-install-recommends</span> <span class="se">\
+</code></pre></div></div> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ARG</span><span class="s"> DEBIAN_FRONTEND=noninteractive</span>
+</code></pre></div></div> <p>Basic development packages, see BrutalSimplicity’s <a href="https://gist.github.com/BrutalSimplicity/882af1d343b7530fc7e005284523d38d" rel="external nofollow noopener" target="_blank">Gist on GitHub</a></p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">RUN </span>apt-get clean <span class="o">&amp;&amp;</span> apt-get update <span class="o">&amp;&amp;</span> apt-get <span class="nt">-y</span> <span class="nb">install</span> <span class="nt">--no-install-recommends</span> <span class="se">\
 </span>    apt-utils <span class="se">\
 </span>    openssh-client <span class="se">\
 </span>    git <span class="se">\
@@ -75,8 +66,7 @@
 </span>    init-system-helpers <span class="se">\
 </span>    make <span class="se">\
 </span>    build-essential <span class="se">\
-</span><span class="c"># python runtime dependencies</span>
-    openssl \
+</span></code></pre></div></div> <p>Python runtime dependencies</p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    openssl \
     bzip2 \
     libreadline8 \
     sqlite3 \
@@ -84,8 +74,7 @@
     xz-utils \
     libxml2 \
     llvm \
-# python build dependencies
-    build-essential \
+</code></pre></div></div> <p>Python build dependencies</p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    build-essential \
     libssl-dev \
     zlib1g-dev \
     libbz2-dev \
@@ -97,52 +86,33 @@
     libxmlsec1-dev \
     libffi-dev \
     liblzma-dev \
-    # some useful dev utils
-    fd-find \
+</code></pre></div></div> <p>Some useful development utilities</p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    fd-find \
     bat \
     tree \
     zsh \
-# some useful tools
-    pandoc \
+</code></pre></div></div> <p>Additional tools</p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    pandoc \
     imagemagick &amp;&amp; \
     ln -s $(which fdfind) /usr/local/bin/fd &amp;&amp; \
     ln -s $(which batcat) /usr/local/bin/bat &amp;&amp; \
     rm -rf /var/lib/apt/lists/*
-
-# add ruby (required for jekyll)
-<span class="k">RUN </span>apt-get update
+</code></pre></div></div> <p>Add ruby (required for jekyll)</p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">RUN </span>apt-get update
 <span class="k">RUN </span>apt-get upgrade
 <span class="k">RUN </span>apt-get <span class="nb">install</span> <span class="nt">--no-install-recommends</span> ruby-full build-essential zlib1g-dev <span class="nt">-y</span>
 <span class="k">RUN </span>apt-get <span class="nb">install </span>imagemagick <span class="nt">-y</span>
 <span class="k">RUN </span>apt-get clean <span class="o">&amp;&amp;</span> <span class="se">\
 </span>    <span class="nb">rm</span> <span class="nt">-rf</span> /var/lib/apt/lists/
-
-<span class="c"># use bash for all RUN commands </span>
-<span class="k">SHELL</span><span class="s"> ["/bin/bash", "-lc"]</span>
-
-<span class="c"># py launcher (requires root)...</span>
-<span class="k">RUN </span>curl <span class="nt">--location</span> <span class="nt">--remote-name</span> https://github.com/brettcannon/python-launcher/releases/download/v1.0.0/python_launcher-1.0.0-x86_64-unknown-linux-gnu.tar.xz <span class="o">&amp;&amp;</span> <span class="se">\
+</code></pre></div></div> <p>Use bash for all RUN commands</p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SHELL</span><span class="s"> ["/bin/bash", "-lc"]</span>
+</code></pre></div></div> <p>Py launcher (requires root)</p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">RUN </span>curl <span class="nt">--location</span> <span class="nt">--remote-name</span> https://github.com/brettcannon/python-launcher/releases/download/v1.0.0/python_launcher-1.0.0-x86_64-unknown-linux-gnu.tar.xz <span class="o">&amp;&amp;</span> <span class="se">\
 </span>    <span class="nb">tar</span> <span class="nt">--extract</span> <span class="nt">--strip-components</span> 1 <span class="nt">--directory</span> /usr/local <span class="nt">--file</span> python_launcher-1.0.0-x86_64-unknown-linux-gnu.tar.xz <span class="o">&amp;&amp;</span> <span class="se">\
 </span>    <span class="nb">rm </span>python_launcher-1.0.0-x86_64-unknown-linux-gnu.tar.xz
-
-<span class="c"># rootless docker image, see</span>
-<span class="c"># https://pythonspeed.com/articles/root-capabilities-docker-security/</span>
-<span class="c"># https://stackoverflow.com/questions/59840450/rootless-docker-image</span>
-
-<span class="c"># create non-root user...</span>
-<span class="k">RUN </span>useradd <span class="nt">--create-home</span> app
+</code></pre></div></div> <p>For hints on how to set up a rootless Podman image, see <a href="https://pythonspeed.com/articles/root-capabilities-docker-security/" rel="external nofollow noopener" target="_blank">Python Speed</a> and questions on <a href="https://stackoverflow.com/questions/59840450/rootless-docker-image" rel="external nofollow noopener" target="_blank">stackoverflow</a>. Create a non-root user</p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">RUN </span>useradd <span class="nt">--create-home</span> app
 
 <span class="k">USER</span><span class="s"> app</span>
-
-<span class="c"># always set a working directory</span>
-<span class="k">WORKDIR</span><span class="s"> /home/app</span>
-
-<span class="c"># install asdf...</span>
-<span class="k">RUN </span>git clone https://github.com/asdf-vm/asdf.git <span class="nv">$HOME</span>/.asdf <span class="nt">--branch</span> v0.11.1 <span class="o">&amp;&amp;</span> <span class="se">\
+</code></pre></div></div> <p>Always set a working directory</p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">WORKDIR</span><span class="s"> /home/app</span>
+</code></pre></div></div> <p>Install <a href="https://github.com/asdf-vm/asdf" rel="external nofollow noopener" target="_blank">asdf</a>, <a href="https://asdf-vm.com/" rel="external nofollow noopener" target="_blank">The Multiple Runtime Version Manager</a> and Python plugin</p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">RUN </span>git clone https://github.com/asdf-vm/asdf.git <span class="nv">$HOME</span>/.asdf <span class="nt">--branch</span> v0.11.1 <span class="o">&amp;&amp;</span> <span class="se">\
 </span>    <span class="nb">echo</span> <span class="s2">". </span><span class="nv">$HOME</span><span class="s2">/.asdf/asdf.sh"</span> <span class="o">&gt;&gt;</span> <span class="nv">$HOME</span>/.bashrc <span class="o">&amp;&amp;</span> <span class="se">\
 </span>    <span class="nb">echo</span> <span class="s2">". </span><span class="nv">$HOME</span><span class="s2">/.asdf/asdf.sh"</span> <span class="o">&gt;&gt;</span> <span class="nv">$HOME</span>/.profile
 
-<span class="c"># install plugins</span>
 <span class="k">RUN </span>asdf plugin add python
     
 <span class="c"># install python (asdf builds from source)</span>
@@ -150,23 +120,15 @@
 
 <span class="c"># set global versions</span>
 <span class="k">RUN </span>asdf global python 3.10.8
-
-<span class="c"># upgrade python package manager</span>
-<span class="k">RUN </span>pip <span class="nb">install</span> <span class="nt">--upgrade</span> pip
-
-<span class="c"># install pipx</span>
-<span class="k">RUN </span>py <span class="nt">-3</span>.10 <span class="nt">-m</span> pip <span class="nb">install </span>pipx <span class="o">&amp;&amp;</span> <span class="se">\
+</code></pre></div></div> <p>Upgrade python package manager</p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">RUN </span>pip <span class="nb">install</span> <span class="nt">--upgrade</span> pip
+</code></pre></div></div> <p>Install <a href="https://github.com/pypa/pipx/" rel="external nofollow noopener" target="_blank">pipx</a></p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">RUN </span>py <span class="nt">-3</span>.10 <span class="nt">-m</span> pip <span class="nb">install </span>pipx <span class="o">&amp;&amp;</span> <span class="se">\
 </span>    asdf reshim python <span class="o">&amp;&amp;</span> <span class="se">\
 </span>    pipx ensurepath
-
-<span class="c"># install build, tox, pre-commit, cookiecutter</span>
-<span class="k">RUN </span>pipx <span class="nb">install </span>build <span class="o">&amp;&amp;</span> <span class="se">\
+</code></pre></div></div> <p>Install <a href="https://github.com/pypa/build" rel="external nofollow noopener" target="_blank">build</a>, <a href="https://tox.wiki/en/latest/" rel="external nofollow noopener" target="_blank">tox</a>, <a href="https://pre-commit.com/" rel="external nofollow noopener" target="_blank">pre-commit</a>, and <a href="https://cookiecutter.readthedocs.io/" rel="external nofollow noopener" target="_blank">cookiecutter</a></p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">RUN </span>pipx <span class="nb">install </span>build <span class="o">&amp;&amp;</span> <span class="se">\
 </span>    pipx <span class="nb">install </span>tox <span class="o">&amp;&amp;</span> <span class="se">\
 </span>    pipx <span class="nb">install </span>pre-commit <span class="o">&amp;&amp;</span> <span class="se">\
 </span>    pipx <span class="nb">install </span>cookiecutter
-
-<span class="c"># optional: add accompanying code (from book "Publishing Python Packages")</span>
-<span class="k">RUN </span><span class="nb">mkdir </span>references <span class="o">&amp;&amp;</span> <span class="se">\
+</code></pre></div></div> <p>Optional: add accompanying code from book <a href="https://www.manning.com/books/publishing-python-packages" rel="external nofollow noopener" target="_blank">Publishing Python Packages</a></p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">RUN </span><span class="nb">mkdir </span>references <span class="o">&amp;&amp;</span> <span class="se">\
 </span>    git clone https://github.com/daneah/publishing-python-packages.git <span class="o">&amp;&amp;</span> <span class="se">\
 </span>    <span class="nb">mv </span>publishing-python-packages references/publishing-python-packages
 </code></pre></div></div> <p>Let’s build an image with podman (remember to use use the <a href="https://github.com/containers/podman/issues/8477" rel="external nofollow noopener" target="_blank">format</a> docker flag; the <a href="https://docs.podman.io/en/latest/markdown/podman-build.1.html" rel="external nofollow noopener" target="_blank">no-cache</a> flag is optional). Hence,</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>podman image build <span class="nt">--no-cache</span> <span class="nt">--format</span> docker <span class="nt">-f</span> Containerfile-pydev-jekyll <span class="nt">-t</span> pydev-jekyll <span class="nb">.</span>

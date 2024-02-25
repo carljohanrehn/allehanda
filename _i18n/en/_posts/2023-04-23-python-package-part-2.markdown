@@ -12,10 +12,13 @@ tags:
 
 ---
 
-In this post I'll describe a Podman [Containerfile](https://docs.podman.io/en/stable/markdown/podman-build.1.html) which describes how to set up a Python development environment with rootless Podman. It is based on a [gist](https://gist.github.com/BrutalSimplicity/882af1d343b7530fc7e005284523d38d) published by "BrutalSimplicity" and Dane Hillard's book [Publishing Python Packages](https://www.manning.com/books/publishing-python-packages). Furthermore, it also contains useful development tools and a full Ruby installation (necessary for creating [Jekyll](https://jekyllrb.com/) static webpages and blog posts, and [GitHub Pages](https://pages.github.com/)). Thus,
+In this post I'll describe a Podman [Containerfile](https://docs.podman.io/en/stable/markdown/podman-build.1.html) which describes how to set up a Python development environment with rootless Podman. It is based on a [Gist on GitHub](https://gist.github.com/BrutalSimplicity/882af1d343b7530fc7e005284523d38d) published by "BrutalSimplicity" and Dane Hillard's book [Publishing Python Packages](https://www.manning.com/books/publishing-python-packages). Furthermore, it contains a full Ruby installation (necessary for creating [Jekyll](https://jekyllrb.com/) static webpages and blog posts, and [GitHub Pages](https://pages.github.com/)). Thus,
 
 ```dockerfile
 FROM debian:bullseye
+
+# note: use with care
+ARG DEBIAN_FRONTEND=noninteractive
 
 LABEL maintainer="Carl Johan Rehn <care02@gmail.com>"
 LABEL updated_at=2023-03-06
@@ -45,10 +48,6 @@ For local language settings, change accordingly
 # ENV LANGUAGE sv_SE:sv
 # ENV LC_ALL sv_SE.UTF-8
 ENV TZ="Europe/Stockholm"
-```
-
-```dockerfile
-ARG DEBIAN_FRONTEND=noninteractive
 ```
 
 Install basic development packages, see BrutalSimplicity's [Gist on GitHub](https://gist.github.com/BrutalSimplicity/882af1d343b7530fc7e005284523d38d)
@@ -145,18 +144,24 @@ and additional tools
 ```dockerfile
     pandoc \
     imagemagick && \
+```
+
+Soft links 
+
+```dockerfile
     ln -s $(which fdfind) /usr/local/bin/fd && \
-    ln -s $(which batcat) /usr/local/bin/bat && \
-    rm -rf /var/lib/apt/lists/*
+    ln -s $(which batcat) /usr/local/bin/bat
 ```
 
 Add ruby (required for jekyll)
 
 ```dockerfile
-RUN apt-get update
-RUN apt-get upgrade
 RUN apt-get install --no-install-recommends ruby-full build-essential zlib1g-dev -y
-RUN apt-get install imagemagick -y
+```
+
+Clean up
+
+```dockerfile
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/
 ```
@@ -167,7 +172,7 @@ Use bash for all RUN commands
 SHELL ["/bin/bash", "-lc"]
 ```
 
-Py launcher (requires root)
+Install [python-launcher](https://python-launcher.app/) (requires root)
 
 ```dockerfile
 RUN curl --location --remote-name https://github.com/brettcannon/python-launcher/releases/download/v1.0.0/python_launcher-1.0.0-x86_64-unknown-linux-gnu.tar.xz && \
@@ -176,43 +181,33 @@ RUN curl --location --remote-name https://github.com/brettcannon/python-launcher
 ```
 
 For hints on how to set up a rootless Podman image, see [Python Speed](https://pythonspeed.com/articles/root-capabilities-docker-security/) and
-questions on [stackoverflow](https://stackoverflow.com/questions/59840450/rootless-docker-image). Create a non-root user
+questions on [stackoverflow](https://stackoverflow.com/questions/59840450/rootless-docker-image). 
+
+Create a non-root user and set a working directory
 
 ```dockerfile
 RUN useradd --create-home app
-
 USER app
-```
-
-Always create and set a working directory
-
-```dockerfile
 WORKDIR /home/app
 ```
 
-Install [asdf](https://github.com/asdf-vm/asdf), [The Multiple Runtime Version Manager](https://asdf-vm.com/) and the Python plugin
+Install [asdf](https://github.com/asdf-vm/asdf), [The Multiple Runtime Version Manager](https://asdf-vm.com/)
 
 ```dockerfile
 RUN git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.11.1 && \
     echo ". $HOME/.asdf/asdf.sh" >> $HOME/.bashrc && \
     echo ". $HOME/.asdf/asdf.sh" >> $HOME/.profile
-
-RUN asdf plugin add python
 ```
     
-Install python (asdf builds from source)
+Add the asdf Python plugin, install python (note: asdf builds from source), and set the global Python version
 
 ```dockerfile
-RUN asdf install python 3.10.8 
+RUN asdf plugin add python && \
+    asdf install python 3.10.8
+    asdf global python 3.10.8
 ```
 
-Set global Python version
-
-```dockerfile
-RUN asdf global python 3.10.8
-```
-
-Upgrade python package manager
+Upgrade [pip](https://pypi.org/project/pip/), the python package manager
 
 ```dockerfile
 RUN pip install --upgrade pip

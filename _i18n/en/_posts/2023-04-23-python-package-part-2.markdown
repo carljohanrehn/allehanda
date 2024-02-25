@@ -153,7 +153,7 @@ Add soft links
     ln -s $(which batcat) /usr/local/bin/bat
 ```
 
-Add Ruby (which is required for Jekyll)
+Install Ruby (which is required for Jekyll)
 
 ```dockerfile
 RUN apt-get install --no-install-recommends ruby-full build-essential zlib1g-dev -y

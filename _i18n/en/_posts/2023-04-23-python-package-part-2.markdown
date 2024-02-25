@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Rootless Podman with Python and Jekyll
+title:  Rootless Podman with Python and Jekyll Part 1
 date: 2023-04-23 13:59:42
 description: 
 categories: 
@@ -12,7 +12,7 @@ tags:
 
 ---
 
-In this post I'll describe a Podman [Containerfile](https://docs.podman.io/en/stable/markdown/podman-build.1.html) which describes how to set up a Python development environment with rootless Podman. It is based on a [Gist on GitHub](https://gist.github.com/BrutalSimplicity/882af1d343b7530fc7e005284523d38d) published by "BrutalSimplicity" and Dane Hillard's book [Publishing Python Packages](https://www.manning.com/books/publishing-python-packages). Furthermore, it contains a full Ruby installation (necessary for creating [Jekyll](https://jekyllrb.com/) static webpages and blog posts, and [GitHub Pages](https://pages.github.com/)). Thus,
+In this post I'll describe a Podman [Containerfile](https://docs.podman.io/en/stable/markdown/podman-build.1.html) which describes how to set up a cross [Python](https://www.python.org/) development environment in a rootless Podman container. It is based on a [Gist on GitHub](https://gist.github.com/BrutalSimplicity/882af1d343b7530fc7e005284523d38d) published by "BrutalSimplicity" and Dane Hillard's book [Publishing Python Packages](https://www.manning.com/books/publishing-python-packages). Furthermore, it contains a full [Ruby](https://www.ruby-lang.org/en/) installation (necessary for creating [Jekyll](https://jekyllrb.com/) static webpages and blog posts, and [GitHub Pages](https://pages.github.com/)). Thus,
 
 ```dockerfile
 FROM debian:bullseye
@@ -146,14 +146,14 @@ and additional tools
     imagemagick && \
 ```
 
-Soft links 
+Add soft links 
 
 ```dockerfile
     ln -s $(which fdfind) /usr/local/bin/fd && \
     ln -s $(which batcat) /usr/local/bin/bat
 ```
 
-Add ruby (required for jekyll)
+Add Ruby (which is required for Jekyll)
 
 ```dockerfile
 RUN apt-get install --no-install-recommends ruby-full build-essential zlib1g-dev -y
@@ -166,7 +166,7 @@ RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/
 ```
 
-Use bash for all RUN commands 
+Use bash for all `RUN` commands 
 
 ```dockerfile
 SHELL ["/bin/bash", "-lc"]

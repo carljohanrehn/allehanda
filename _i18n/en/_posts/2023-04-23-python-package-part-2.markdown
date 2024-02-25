@@ -26,7 +26,7 @@ LABEL updated_at=2023-03-06
 RUN apt-get update -y
 ```
 
-Add locale and a time zone (check in running container with $TZ, date, and locale), see question on  [stackoverflow](https://stackoverflow.com/questions/28405902/how-to-set-the-locale-inside-a-debian-ubuntu-docker-container) and Jiménez's [Gist on GitHub](https://gist.github.com/sjimenez44/1b73afeae3eec26a1915b0d4d5873b8f)
+Add locale and a time zone (check in running container with `$TZ`, `date`, and `locale`), see question on  [stackoverflow](https://stackoverflow.com/questions/28405902/how-to-set-the-locale-inside-a-debian-ubuntu-docker-container) and Jiménez's [Gist on GitHub](https://gist.github.com/sjimenez44/1b73afeae3eec26a1915b0d4d5873b8f)
 
 ```dockerfile
 RUN apt-get install -y locales locales-all tzdata

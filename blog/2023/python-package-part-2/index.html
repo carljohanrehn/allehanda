@@ -94,7 +94,7 @@
     imagemagick &amp;&amp; \
 </code></pre></div></div> <p>Add soft links</p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    ln -s $(which fdfind) /usr/local/bin/fd &amp;&amp; \
     ln -s $(which batcat) /usr/local/bin/bat
-</code></pre></div></div> <p>Add Ruby (which is required for Jekyll)</p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">RUN </span>apt-get <span class="nb">install</span> <span class="nt">--no-install-recommends</span> ruby-full build-essential zlib1g-dev <span class="nt">-y</span>
+</code></pre></div></div> <p>Install Ruby (which is required for Jekyll)</p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">RUN </span>apt-get <span class="nb">install</span> <span class="nt">--no-install-recommends</span> ruby-full build-essential zlib1g-dev <span class="nt">-y</span>
 </code></pre></div></div> <p>Clean up</p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">RUN </span>apt-get clean <span class="o">&amp;&amp;</span> <span class="se">\
 </span>    <span class="nb">rm</span> <span class="nt">-rf</span> /var/lib/apt/lists/
 </code></pre></div></div> <p>Use bash for all <code class="language-plaintext highlighter-rouge">RUN</code> commands</p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SHELL</span><span class="s"> ["/bin/bash", "-lc"]</span>

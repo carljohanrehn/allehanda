@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Rootless Podman with Python and Jekyll Part 1
+title:  Cross Python Development with Rootless Podman Part 1
 date: 2023-04-23 13:59:42
 description: 
 categories: 
@@ -12,10 +12,11 @@ tags:
 
 ---
 
-In this post I'll describe a Podman [Containerfile](https://docs.podman.io/en/stable/markdown/podman-build.1.html) which describes how to set up a cross [Python](https://www.python.org/) development environment in a rootless Podman container. It is based on a [Gist on GitHub](https://gist.github.com/BrutalSimplicity/882af1d343b7530fc7e005284523d38d) published by "BrutalSimplicity" and Dane Hillard's book [Publishing Python Packages](https://www.manning.com/books/publishing-python-packages). Furthermore, it contains a full [Ruby](https://www.ruby-lang.org/en/) installation (necessary for creating [Jekyll](https://jekyllrb.com/) static webpages and blog posts, and [GitHub Pages](https://pages.github.com/)). Thus,
+In this post I'll describe a Podman [Containerfile](https://docs.podman.io/en/stable/markdown/podman-build.1.html) in which we create a rootless cross [Python](https://www.python.org/) development environment. It is based on a [Gist on GitHub](https://gist.github.com/BrutalSimplicity/882af1d343b7530fc7e005284523d38d) published by "BrutalSimplicity" and Dane Hillard's book [Publishing Python Packages](https://www.manning.com/books/publishing-python-packages). Furthermore, it contains a full [Ruby](https://www.ruby-lang.org/en/) installation (necessary for creating [Jekyll](https://jekyllrb.com/) static webpages and blog posts, and [GitHub Pages](https://pages.github.com/)). Thus,
 
 ```dockerfile
 FROM debian:bullseye
+USER root
 
 # note: use with care
 ARG DEBIAN_FRONTEND=noninteractive
@@ -113,10 +114,9 @@ Also, install Python runtime dependencies
     llvm \
 ```
 
-and Python build dependencies
+and Python and Ruby build dependencies
 
 ```dockerfile
-    build-essential \
     libssl-dev \
     zlib1g-dev \
     libbz2-dev \
@@ -156,7 +156,7 @@ Add soft links
 Install Ruby (which is required for Jekyll)
 
 ```dockerfile
-RUN apt-get install --no-install-recommends ruby-full build-essential zlib1g-dev -y
+RUN apt-get install --no-install-recommends ruby-full -y
 ```
 
 Clean up
@@ -191,7 +191,7 @@ USER app
 WORKDIR /home/app
 ```
 
-Install [asdf](https://github.com/asdf-vm/asdf), [The Multiple Runtime Version Manager](https://asdf-vm.com/)
+Install [The Multiple Runtime Version Manager](https://asdf-vm.com/), that is, [asdf](https://github.com/asdf-vm/asdf)
 
 ```dockerfile
 RUN git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.11.1 && \
@@ -199,7 +199,9 @@ RUN git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.11.1 &
     echo ". $HOME/.asdf/asdf.sh" >> $HOME/.profile
 ```
     
-Add the asdf Python plugin, install python (note: asdf builds from source), and set the global Python version
+and asdf's Python plugin.
+
+Build and install python (note: asdf builds from source); and set the global Python version
 
 ```dockerfile
 RUN asdf plugin add python && \
@@ -221,7 +223,7 @@ RUN py -3.10 -m pip install pipx && \
     pipx ensurepath
 ```
 
-Install [build](https://github.com/pypa/build), [tox](https://tox.wiki/en/latest/), [pre-commit](https://pre-commit.com/), and [cookiecutter](https://cookiecutter.readthedocs.io/)
+Install [build](https://github.com/pypa/build), [tox](https://tox.wiki/en/latest/), [pre-commit](https://pre-commit.com/), and [cookiecutter](https://cookiecutter.readthedocs.io/) (see [Publishing Python Packages](https://www.manning.com/books/publishing-python-packages))
 
 ```dockerfile
 RUN pipx install build && \
@@ -230,7 +232,7 @@ RUN pipx install build && \
     pipx install cookiecutter
 ```
 
-Optional: add accompanying code from book [Publishing Python Packages](https://www.manning.com/books/publishing-python-packages)
+Optional: add accompanying code 
 
 ```dockerfile
 RUN mkdir references && \
@@ -238,7 +240,7 @@ RUN mkdir references && \
     mv publishing-python-packages references/publishing-python-packages
 ```
 
-Let's build an image with podman (remember to use use the [format](https://github.com/containers/podman/issues/8477) docker flag; the [no-cache](https://docs.podman.io/en/latest/markdown/podman-build.1.html) flag is optional). Hence, 
+Let's build an image with Podman (remember to use use the [format](https://github.com/containers/podman/issues/8477) docker flag; the [no-cache](https://docs.podman.io/en/latest/markdown/podman-build.1.html) flag is optional). Hence, 
 
 ```bash
 podman image build --no-cache --format docker -f Containerfile-pydev-jekyll -t pydev-jekyll .

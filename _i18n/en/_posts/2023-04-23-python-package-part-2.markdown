@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Cross Python Development with Rootless Podman Part 1
+title: Cross Python Development with Rootless Podman Part 1
 date: 2023-04-23 13:59:42
 description: 
 categories: 
@@ -9,7 +9,6 @@ tags:
   - Python
   - Jekyll
   - Podman
-
 ---
 
 In this post I'll describe a Podman [Containerfile](https://docs.podman.io/en/stable/markdown/podman-build.1.html) in which we create a rootless cross [Python](https://www.python.org/) development environment. It is based on a [Gist on GitHub](https://gist.github.com/BrutalSimplicity/882af1d343b7530fc7e005284523d38d) published by "BrutalSimplicity" and Dane Hillard's book [Publishing Python Packages](https://www.manning.com/books/publishing-python-packages). Furthermore, it contains a full [Ruby](https://www.ruby-lang.org/en/) installation (necessary for creating [Jekyll](https://jekyllrb.com/) static webpages and blog posts, and [GitHub Pages](https://pages.github.com/)). Thus,
@@ -24,7 +23,8 @@ ARG DEBIAN_FRONTEND=noninteractive
 LABEL maintainer="Carl Johan Rehn <care02@gmail.com>"
 LABEL updated_at=2023-03-06
 
-RUN apt-get update -y
+RUN apt-get clean && \
+    apt-get update 
 ```
 
 Add locale and a time zone (check in running container with `$TZ`, `date`, and `locale`), see question on  [stackoverflow](https://stackoverflow.com/questions/28405902/how-to-set-the-locale-inside-a-debian-ubuntu-docker-container) and Jiménez's [Gist on GitHub](https://gist.github.com/sjimenez44/1b73afeae3eec26a1915b0d4d5873b8f)
@@ -54,7 +54,7 @@ ENV TZ="Europe/Stockholm"
 Install basic development packages, see BrutalSimplicity's [Gist on GitHub](https://gist.github.com/BrutalSimplicity/882af1d343b7530fc7e005284523d38d)
 
 ```dockerfile
-RUN apt-get clean && apt-get update && apt-get -y install --no-install-recommends \
+RUN apt-get -y install --no-install-recommends \
     apt-utils \
     openssh-client \
     git \

@@ -7,7 +7,8 @@
 <span class="k">LABEL</span><span class="s"> maintainer="Carl Johan Rehn &lt;care02@gmail.com&gt;"</span>
 <span class="k">LABEL</span><span class="s"> updated_at=2023-03-06</span>
 
-<span class="k">RUN </span>apt-get update <span class="nt">-y</span>
+<span class="k">RUN </span>apt-get clean <span class="o">&amp;&amp;</span> <span class="se">\
+</span>    apt-get update 
 </code></pre></div></div> <p>Add locale and a time zone (check in running container with <code class="language-plaintext highlighter-rouge">$TZ</code>, <code class="language-plaintext highlighter-rouge">date</code>, and <code class="language-plaintext highlighter-rouge">locale</code>), see question on <a href="https://stackoverflow.com/questions/28405902/how-to-set-the-locale-inside-a-debian-ubuntu-docker-container" rel="external nofollow noopener" target="_blank">stackoverflow</a> and Jiménez’s <a href="https://gist.github.com/sjimenez44/1b73afeae3eec26a1915b0d4d5873b8f" rel="external nofollow noopener" target="_blank">Gist on GitHub</a></p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">RUN </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> locales locales-all tzdata
 
 <span class="k">RUN </span><span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'/en_US.UTF-8/s/^# //g'</span> /etc/locale.gen <span class="o">&amp;&amp;</span> <span class="se">\
@@ -22,7 +23,7 @@
 <span class="c"># ENV LANGUAGE sv_SE:sv</span>
 <span class="c"># ENV LC_ALL sv_SE.UTF-8</span>
 <span class="k">ENV</span><span class="s"> TZ="Europe/Stockholm"</span>
-</code></pre></div></div> <p>Install basic development packages, see BrutalSimplicity’s <a href="https://gist.github.com/BrutalSimplicity/882af1d343b7530fc7e005284523d38d" rel="external nofollow noopener" target="_blank">Gist on GitHub</a></p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">RUN </span>apt-get clean <span class="o">&amp;&amp;</span> apt-get update <span class="o">&amp;&amp;</span> apt-get <span class="nt">-y</span> <span class="nb">install</span> <span class="nt">--no-install-recommends</span> <span class="se">\
+</code></pre></div></div> <p>Install basic development packages, see BrutalSimplicity’s <a href="https://gist.github.com/BrutalSimplicity/882af1d343b7530fc7e005284523d38d" rel="external nofollow noopener" target="_blank">Gist on GitHub</a></p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">RUN </span>apt-get <span class="nt">-y</span> <span class="nb">install</span> <span class="nt">--no-install-recommends</span> <span class="se">\
 </span>    apt-utils <span class="se">\
 </span>    openssh-client <span class="se">\
 </span>    git <span class="se">\

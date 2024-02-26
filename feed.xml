@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://carljohanrehn.github.io/allehanda/feed.xml" rel="self" type="application/atom+xml"/><link href="https://carljohanrehn.github.io/allehanda/" rel="alternate" type="text/html" hreflang="en"/><updated>2024-02-26T08:28:34+00:00</updated><id>https://carljohanrehn.github.io/allehanda/feed.xml</id><title type="html">Allehanda</title><entry><title type="html">a post with TikZJax</title><link href="https://carljohanrehn.github.io/allehanda/blog/2023/tikzjax/" rel="alternate" type="text/html" title="a post with TikZJax"/><published>2023-12-12T22:25:00+00:00</published><updated>2023-12-12T22:25:00+00:00</updated><id>https://carljohanrehn.github.io/allehanda/blog/2023/tikzjax</id><content type="html" xml:base="https://carljohanrehn.github.io/allehanda/blog/2023/tikzjax/"><![CDATA[<p>This is an example post with TikZ code. TikZJax converts script tags (containing TikZ code) into SVGs.</p> <script type="text/tikz">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://carljohanrehn.github.io/allehanda/feed.xml" rel="self" type="application/atom+xml"/><link href="https://carljohanrehn.github.io/allehanda/" rel="alternate" type="text/html" hreflang="en"/><updated>2024-02-26T08:32:11+00:00</updated><id>https://carljohanrehn.github.io/allehanda/feed.xml</id><title type="html">Allehanda</title><entry><title type="html">a post with TikZJax</title><link href="https://carljohanrehn.github.io/allehanda/blog/2023/tikzjax/" rel="alternate" type="text/html" title="a post with TikZJax"/><published>2023-12-12T22:25:00+00:00</published><updated>2023-12-12T22:25:00+00:00</updated><id>https://carljohanrehn.github.io/allehanda/blog/2023/tikzjax</id><content type="html" xml:base="https://carljohanrehn.github.io/allehanda/blog/2023/tikzjax/"><![CDATA[<p>This is an example post with TikZ code. TikZJax converts script tags (containing TikZ code) into SVGs.</p> <script type="text/tikz">
 \begin{tikzpicture}
     \draw[red,fill=black!60!red] (0,0) circle [radius=1.5];
     \draw[green,fill=black!60!green] (0,0) circle [x radius=1.5cm, y radius=10mm];
@@ -237,37 +237,56 @@ docker-compose <span class="nt">-f</span> docker-compose-pypa-jekyllk.yml up not
       <span class="pi">-</span> <span class="s">.:/home/app/project:Z</span>
     <span class="na">ports</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">8888:8888</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="fries-al-folio"/><category term="Jekyll,"/><category term="Podman"/><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">displaying beautiful tables with Bootstrap Tables</title><link href="https://carljohanrehn.github.io/allehanda/blog/2023/tables/" rel="alternate" type="text/html" title="displaying beautiful tables with Bootstrap Tables"/><published>2023-03-20T18:37:00+00:00</published><updated>2023-03-20T18:37:00+00:00</updated><id>https://carljohanrehn.github.io/allehanda/blog/2023/tables</id><content type="html" xml:base="https://carljohanrehn.github.io/allehanda/blog/2023/tables/"><![CDATA[<p>Using markdown to display tables is easy. Just use the following syntax:</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| Left aligned | Center aligned | Right aligned |
-| :----------- | :------------: | ------------: |
-| Left 1       | center 1       | right 1       |
-| Left 2       | center 2       | right 2       |
-| Left 3       | center 3       | right 3       |
-</code></pre></div></div> <p>That will generate:</p> <table> <thead> <tr> <th style="text-align: left">Left aligned</th> <th style="text-align: center">Center aligned</th> <th style="text-align: right">Right aligned</th> </tr> </thead> <tbody> <tr> <td style="text-align: left">Left 1</td> <td style="text-align: center">center 1</td> <td style="text-align: right">right 1</td> </tr> <tr> <td style="text-align: left">Left 2</td> <td style="text-align: center">center 2</td> <td style="text-align: right">right 2</td> </tr> <tr> <td style="text-align: left">Left 3</td> <td style="text-align: center">center 3</td> <td style="text-align: right">right 3</td> </tr> </tbody> </table> <p></p> <p>It is also possible to use HTML to display tables. For example, the following HTML code will display a table with <a href="https://bootstrap-table.com/">Bootstrap Table</a>, loaded from a JSON file:</p> <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;table</span>
-  <span class="na">id=</span><span class="s">"table"</span>
-  <span class="na">data-toggle=</span><span class="s">"table"</span>
-  <span class="na">data-url=</span><span class="s">"{{ '/assets/json/table_data.json' | relative_url }}"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;thead&gt;</span>
-    <span class="nt">&lt;tr&gt;</span>
-      <span class="nt">&lt;th</span> <span class="na">data-field=</span><span class="s">"id"</span><span class="nt">&gt;</span>ID<span class="nt">&lt;/th&gt;</span>
-      <span class="nt">&lt;th</span> <span class="na">data-field=</span><span class="s">"name"</span><span class="nt">&gt;</span>Item Name<span class="nt">&lt;/th&gt;</span>
-      <span class="nt">&lt;th</span> <span class="na">data-field=</span><span class="s">"price"</span><span class="nt">&gt;</span>Item Price<span class="nt">&lt;/th&gt;</span>
-    <span class="nt">&lt;/tr&gt;</span>
-  <span class="nt">&lt;/thead&gt;</span>
-<span class="nt">&lt;/table&gt;</span>
-</code></pre></div></div> <table data-toggle="table" data-url="/allehanda/assets/json/table_data.json"> <thead> <tr> <th data-field="id">ID</th> <th data-field="name">Item Name</th> <th data-field="price">Item Price</th> </tr> </thead> </table> <p></p> <p>By using <a href="https://bootstrap-table.com/">Bootstrap Table</a> it is possible to create pretty complex tables, with pagination, search, and more. For example, the following HTML code will display a table, loaded from a JSON file, with pagination, search, checkboxes, and header/content alignment. For more information, check the <a href="https://examples.bootstrap-table.com/index.html">documentation</a>.</p> <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;table</span>
-  <span class="na">data-click-to-select=</span><span class="s">"true"</span>
-  <span class="na">data-height=</span><span class="s">"460"</span>
-  <span class="na">data-pagination=</span><span class="s">"true"</span>
-  <span class="na">data-search=</span><span class="s">"true"</span>
-  <span class="na">data-toggle=</span><span class="s">"table"</span>
-  <span class="na">data-url=</span><span class="s">"{{ '/assets/json/table_data.json' | relative_url }}"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;thead&gt;</span>
-    <span class="nt">&lt;tr&gt;</span>
-      <span class="nt">&lt;th</span> <span class="na">data-checkbox=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/th&gt;</span>
-      <span class="nt">&lt;th</span> <span class="na">data-field=</span><span class="s">"id"</span> <span class="na">data-halign=</span><span class="s">"left"</span> <span class="na">data-align=</span><span class="s">"center"</span> <span class="na">data-sortable=</span><span class="s">"true"</span><span class="nt">&gt;</span>ID<span class="nt">&lt;/th&gt;</span>
-      <span class="nt">&lt;th</span> <span class="na">data-field=</span><span class="s">"name"</span> <span class="na">data-halign=</span><span class="s">"center"</span> <span class="na">data-align=</span><span class="s">"right"</span> <span class="na">data-sortable=</span><span class="s">"true"</span><span class="nt">&gt;</span>Item Name<span class="nt">&lt;/th&gt;</span>
-      <span class="nt">&lt;th</span> <span class="na">data-field=</span><span class="s">"price"</span> <span class="na">data-halign=</span><span class="s">"right"</span> <span class="na">data-align=</span><span class="s">"left"</span> <span class="na">data-sortable=</span><span class="s">"true"</span><span class="nt">&gt;</span>Item Price<span class="nt">&lt;/th&gt;</span>
-    <span class="nt">&lt;/tr&gt;</span>
-  <span class="nt">&lt;/thead&gt;</span>
-<span class="nt">&lt;/table&gt;</span>
-</code></pre></div></div> <table data-click-to-select="true" data-height="460" data-pagination="true" data-search="true" data-toggle="table" data-url="/allehanda/assets/json/table_data.json"> <thead> <tr> <th data-checkbox="true"></th> <th data-field="id" data-halign="left" data-align="center" data-sortable="true">ID</th> <th data-field="name" data-halign="center" data-align="right" data-sortable="true">Item Name</th> <th data-field="price" data-halign="right" data-align="left" data-sortable="true">Item Price</th> </tr> </thead> </table>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="tables"/><summary type="html"><![CDATA[an example of how to use Bootstrap Tables]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="fries-al-folio"/><category term="Jekyll,"/><category term="Podman"/><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Cross Python Development with Rootless Podman Part 2</title><link href="https://carljohanrehn.github.io/allehanda/blog/2023/jekyll-python-package-part-1/" rel="alternate" type="text/html" title="Cross Python Development with Rootless Podman Part 2"/><published>2023-04-15T21:32:08+00:00</published><updated>2023-04-15T21:32:08+00:00</updated><id>https://carljohanrehn.github.io/allehanda/blog/2023/jekyll-python-package-part-1</id><content type="html" xml:base="https://carljohanrehn.github.io/allehanda/blog/2023/jekyll-python-package-part-1/"><![CDATA[<p>This post continues where we left off in <a href="https://carljohanrehn.github.io/allehanda/blog/2023/python-package-part-2/">Cross Python Development with Rootless Podman Part 1</a>. Here you’ll see how to create a Python virtual environment for a specific project of yours, and how to activate it.</p> <p>Always set a working directory</p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">FROM</span><span class="s"> pydev-jekyll</span>
+<span class="k">USER</span><span class="s"> app</span>
+<span class="k">WORKDIR</span><span class="s"> /home/app</span>
+</code></pre></div></div> <p>Create virtual environment (and delete existing if it exists) using a <code class="language-plaintext highlighter-rouge">requirements.txt</code> file</p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">COPY</span><span class="s"> requirements.txt .</span>
+
+<span class="k">RUN </span>py <span class="nt">-3</span>.10 <span class="nt">-m</span> venv /home/app/virtualenv/.venv <span class="o">&amp;&amp;</span> <span class="se">\
+</span>    /home/app/virtualenv/.venv/bin/pip <span class="nb">install</span> <span class="nt">--upgrade</span> pip <span class="o">&amp;&amp;</span> <span class="se">\
+</span>    /home/app/virtualenv/.venv/bin/pip <span class="nb">install</span> <span class="nt">-r</span> requirements.txt <span class="o">&amp;&amp;</span> <span class="se">\
+</span>    <span class="nb">rm </span>requirements.txt
+</code></pre></div></div> <p>For instance, my <code class="language-plaintext highlighter-rouge">requirements.txt</code> file contains the following</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--extra-index-url https://download.pytorch.org/whl/cpu
+# --extra-index-url https://files.pythonhosted.org/packages/86/cc/f2685fc3fc37122fe8be22e6c0dfdaeab49026625b8c2cf41bc87b1cdd4d
+# https://files.pythonhosted.org/packages/80/5e/f095ccdf24860a7548b39f93d2df03017ad3218f90a0406feb5e5661d0c7/scikit_learn-1.2.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+# https://files.pythonhosted.org/packages/80/53/47bed2190d2d86914223454f69744553521bc20c7de922d6a3b5300316ab/scikit_learn-1.2.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+seaborn&gt;=0.12.2
+matplotlib&gt;=3.6.2
+numpy&gt;=1.23.5
+tqdm&gt;=4.64
+pandas&gt;=1.5.2
+# sklearn
+scikit-learn
+torch
+torchvision
+torchaudio
+# torch-cpu
+# torchvision-cpu
+# torchaudio-cpu
+ipython
+jupyter
+jupyterlab
+</code></pre></div></div> <p>Activate your virtual environment</p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">RUN </span><span class="nb">source</span> /home/app/virtualenv/.venv/bin/activate
+</code></pre></div></div> <p>Install with source package (<em>.tar.gz) or wheel (</em>.whl). Python version optional with tar.gz package; otherwise, needs to be specified when using wheel</p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">RUN </span>py <span class="nt">-3</span>.10 <span class="nt">-m</span> venv /home/app/torch-app/.venv <span class="o">&amp;&amp;</span> <span class="se">\
+</span>    /home/app/torch-app/.venv/bin/pip <span class="nb">install</span> <span class="nt">--upgrade</span> pip <span class="o">&amp;&amp;</span> <span class="se">\
+</span>    /home/app/torch-app/.venv/bin/pip <span class="nb">install</span> /home/app/project/dist/torch-app-0.0.1.tar.gz
+<span class="c">#     /home/app/torch-app/.venv/bin/pip install /home/app/project/dist/torch_app-0.0.1-non-any.whl</span>
+</code></pre></div></div> <p>Special for PyTorch CPU version with source or binary package installation, see README.md</p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">RUN </span>py <span class="nt">-m</span> pip <span class="nb">install </span>torch torchvision torchaudio <span class="nt">--extra-index-url</span> https://download.pytorch.org/whl/cpu
+</code></pre></div></div> <p>Optional: add accompanying code (from book “Inside Deep Learning”)</p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">RUN </span>git clone https://github.com/EdwardRaff/Inside-Deep-Learning.git <span class="o">&amp;&amp;</span> <span class="se">\
+</span>    <span class="nb">mv </span>Inside-Deep-Learning references/inside-deep-learning
+</code></pre></div></div> <p>Clone other books here…</p> <p>Jupyter notebook (or lab); set entrypoint in docker compose file</p> <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CMD</span><span class="s"> py -m notebook --no-browser --allow-root --ip=0.0.0.0 --port=8888 --notebook-dir=/home/app --NotebookApp.token='' --NotebookApp.password=''</span>
+<span class="c"># CMD py -m jupyter lab --no-browser --ip=0.0.0.0 --port=8888 --notebook-dir=/home/app --NotebookApp.token='' --NotebookApp.password=''</span>
+</code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>podman image build <span class="nt">--no-cache</span> <span class="nt">--format</span> docker <span class="nt">-f</span> Containerfile-pypak-jekyll <span class="nt">-t</span> pypak-jekyll <span class="nb">.</span>
+podman image build <span class="nt">--format</span> docker <span class="nt">-f</span> Containerfile-pypak-jekyll <span class="nt">-t</span> pypak-jekyll <span class="nb">.</span>
+</code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>podman container run <span class="nt">-it</span> pypak-jekyll
+podman container run <span class="nt">-it</span> <span class="nt">--rm</span> pypak-jekyll
+</code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># https://github.com/containers/podman/issues/3683</span>
+<span class="c"># https://unix.stackexchange.com/questions/728801/host-wide-consequences-of-setting-selinux-z-z-option-on-container-bind-mounts</span>
+<span class="c"># https://manpages.ubuntu.com/manpages/jammy/man1/docker-container-create.1.html</span>
+</code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>podman container run <span class="nt">-it</span> <span class="nt">--rm</span> <span class="nt">-v</span> .:/home/app/torch-app:Z pypak-jekyll
+</code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker image build <span class="nt">-f</span> Containerfile-pypak-jekyll <span class="nt">-t</span> pypak-jekyll <span class="nb">.</span>
+</code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker container run <span class="nt">-it</span> pypak-jekyll
+docker container run <span class="nt">-it</span> <span class="nt">--rm</span> pypak-jekyll
+</code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Jupyter notebook port mapping</span>
+docker container run <span class="nt">-it</span> <span class="nt">-p</span> 8888:8888 pypak-jekyll
+</code></pre></div></div>]]></content><author><name></name></author><category term="Cross Python Development"/><category term="Python"/><category term="Jekyll"/><category term="Podman"/><summary type="html"><![CDATA[This post continues where we left off in Cross Python Development with Rootless Podman Part 1. Here you’ll see how to create a Python virtual environment for a specific project of yours, and how to activate it.]]></summary></entry></feed>

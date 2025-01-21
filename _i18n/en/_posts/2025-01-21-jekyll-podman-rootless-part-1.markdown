@@ -3,8 +3,8 @@ layout: post
 title: "Running Jekyll in a Rootless Podman Container: Part 1 - Setting the Stage"
 date: 2025-01-20 09:42:43
 description: "A guide on setting up and running Jekyll in a rootless Podman container. We explore the importance of user mapping and file ownership when using rootless containers."
-tags: Jekyll, Podman, Containers, Rootless, Development
-categories: fries-al-folio
+tags: [Containers, Development, Jekyll, Podman, Rootless]
+categories: [fries-al-folio]
 ---
 
 In this first part of a three-part series, we’ll explore how to run Jekyll, a static site generator, inside a rootless Podman container. Rootless containers enhance security by eliminating the need for root privileges, while also providing a lightweight and streamlined development workflow. This guide focuses on key aspects such as user mapping, file ownership, and running Jekyll with `podman-compose`.
@@ -158,6 +158,7 @@ You’ll see the new ownership reflected as:
 ```text
 drwxr-xr-x. 1 100999 100999  1518 Apr 29 10:04 .
 drwxr-xr-x. 1 alpha  alpha     44 Mar 25 08:08 ..
+-rw-r--r--. 1 100999 100999   243 Feb  7 17:08 404.html
 ...
 ```
 
@@ -170,6 +171,7 @@ podman unshare ls -al
 ```text
 drwxr-xr-x. 1 alpha alpha  1518 Apr 29 10:04 .
 drwxr-xr-x. 1 root  root     44 Mar 25 08:08 ..
+-rw-r--r--. 1 alpha alpha   243 Feb  7 17:08 404.html
 ...
 ```
 

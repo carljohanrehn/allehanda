@@ -231,7 +231,7 @@ This ensures consistent permissions when working outside the context of Podman. 
 
 In this post, we’ve covered how to build a custom Jekyll image, manage user ID mapping in rootless containers, and set up `podman-compose` to simplify containerized Jekyll workflows. Understanding file ownership and user mapping is vital for working securely with rootless containers.
 
-Stay tuned for **Part 2**, where we’ll focus on running and testing Jekyll inside the container in a reproducible way!
+Stay tuned for [next part](https://carljohanrehn.github.io/allehanda/blog/2025/jekyll-podman-rootless-part-2/), where we’ll focus on running and testing Jekyll inside the container in a reproducible way!
 
 ---
 *This is Part 1 of a series on using rootless Podman containers with Jekyll.*

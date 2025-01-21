@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Running Jekyll in a Rootless Podman Container: Part 1 - Setting the Stage"
-date: 2025-01-21 09:42:43
+date: 2025-01-20 09:42:43
 description: "A guide on setting up and running Jekyll in a rootless Podman container. We explore the importance of user mapping and file ownership when using rootless containers."
 tags: Jekyll, Podman, Containers, Rootless, Development
 categories: fries-al-folio
